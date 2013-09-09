@@ -15,6 +15,9 @@
 */
 define(["./AbstractParent","Inheritance"],function(AbstractParent,Inheritance) {
   
+  /**
+   * @private
+   */
   var InvisibleParent = function() {
     this._callSuperConstructor(InvisibleParent);
     
@@ -23,6 +26,9 @@ define(["./AbstractParent","Inheritance"],function(AbstractParent,Inheritance) {
     this.init();
   };
   
+  /**
+   * @private
+   */
   InvisibleParent.prototype = {
     
     /*public*/ removeChild: function(node) {

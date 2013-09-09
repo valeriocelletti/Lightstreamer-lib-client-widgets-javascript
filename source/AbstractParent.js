@@ -16,10 +16,13 @@
 define([],function() {
   
   /**
-   * Not to be used directly
+   * @private
    */
   var AbstractParent = function(){};
   
+  /**
+   * @private
+   */
   AbstractParent.prototype = {
     /**
      * common ancestor for VisibleParent (oneMap = true) and 
