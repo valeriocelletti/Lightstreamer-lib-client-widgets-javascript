@@ -1,0 +1,8 @@
+.settings
+.project
+built
+docs
+build/js.jar
+build/compiler.jar
+build/*.sh
+build/*.bat
