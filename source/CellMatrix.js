@@ -119,10 +119,11 @@ define(["Matrix","Inheritance","./Cell"],
         toRow[col] = copyAll(fromRow[col],useInner);
         
       } else if(toRow[col].isCell && fromRow[col].isCell) {
-          //both are cells, simple case
-          toRow[col].scrollHere(fromRow[col],useInner);
+        //both are cells, simple case
+        toRow[col].scrollHere(fromRow[col],useInner);
+        
       } else {
-        //one or both are lists, let's search and match
+        //one or both are arrays, let's search and match
         
         //make both arrays
         var fromCells = fromRow[col].isCell ? [fromRow[col]] : fromRow[col];
@@ -138,7 +139,7 @@ define(["Matrix","Inheritance","./Cell"],
           var matched = false;
           //search the correspondant to-cell if any
           for (var m=0; m<toCells.length; m++) {
-            if (toCells[m].getNum() === fromCells[n].getNum()) {
+            if (toCells[m].getNum() === fromCells[n].getNum()) { //a null would match with the first null available if any
               //if found do the scoll
               toCells[m].scrollHere(fromCells[n],useInner);
               matched = true;
