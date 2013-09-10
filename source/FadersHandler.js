@@ -67,8 +67,8 @@ define(["./ColorConverter","Executor","Helpers","./Cell"],
       return (steps > 1) ? steps : 1;
     },
     
-    /*public*/ launchFader: function(_id) {
-      var fader = this.faderList[_id];
+    /*public*/ launchFader: function(id) {
+      var fader = this.faderList[id];
       
       var currentPhase = fader.cell.getFadePhase();
       if (!currentPhase) {
@@ -96,7 +96,7 @@ define(["./ColorConverter","Executor","Helpers","./Cell"],
         }
         this.freeFaders.put(oldId);
       }
-      this.runningFaders[fader.cell.getCellId()] = _id;
+      this.runningFaders[fader.cell.getCellId()] = id;
           
       if (fader.endBack) {
         fader.startBack = ColorConverter.getStyle(fader.cell.getEl(),"backgroundColor");
@@ -229,13 +229,13 @@ define(["./ColorConverter","Executor","Helpers","./Cell"],
     /**
      * @private
      */
-    fadeThreadStart: function(_timeout) {
+    fadeThreadStart: function(timeout) {
       if (this.fadeThread == true) {
         return;
       }
       this.fadeThread = true;
       
-      this.nextFade(_timeout);
+      this.nextFade(timeout);
     },
     
 
@@ -255,12 +255,12 @@ define(["./ColorConverter","Executor","Helpers","./Cell"],
      * may be exposed to offer fade functionality to non-Cell elements
      * @private
      */
-    fadeCell: function(theTag, _bgColor, textColor, fadeMillis, endCommand){
+    fadeCell: function(theTag, bgColor, textColor, fadeMillis, endCommand){
       //then make it a task
       var endCommandTask = Executor.packTask(endCommand);
       
       var cell = new Cell(theTag);
-      var fadeId = this.getNewFaderId(cell, false, _bgColor, textColor, fadeMillis, endCommandTask);
+      var fadeId = this.getNewFaderId(cell, false, bgColor, textColor, fadeMillis, endCommandTask);
       this.launchFader(fadeId);
       return fadeId;
     }
@@ -277,8 +277,8 @@ define(["./ColorConverter","Executor","Helpers","./Cell"],
   };
   
   FaderPile.prototype = {
-    put: function(_id) {
-      this.pile[this.length] = _id;
+    put: function(id) {
+      this.pile[this.length] = id;
       this.length++;
     },
  
