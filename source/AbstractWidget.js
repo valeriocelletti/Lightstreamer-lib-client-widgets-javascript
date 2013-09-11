@@ -674,25 +674,22 @@ define(["Inheritance","Matrix","LoggerManager","Setter","EventDispatcher","Illeg
       /**
        * Abstract method. See subclasses descriptions for details.
        */
-      parseHtml: function() {
-        
-      },
-      
-
-     /** 
-      * abstract method
-      * @protected
-      */ 
-      updateRowExecution: function(key,serverValues) {
-        
-      },
+      parseHtml: function() {},
       /** 
        * abstract method
        * @protected
        */ 
-      removeRowExecution: function(key) {
-        
-      }
+      updateRowExecution: function(key,serverValues) {},
+      /** 
+       * abstract method
+       * @protected
+       */ 
+      removeRowExecution: function(key) {},
+      /** 
+       * abstract method
+       * @protected
+       */ 
+      mergeUpdate: function(key,newValues) {}
   };
 
   Inheritance(AbstractWidget,EventDispatcher,false,true);
