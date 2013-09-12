@@ -127,11 +127,11 @@ define(["Inheritance","Matrix","LoggerManager","Setter","EventDispatcher","Illeg
   };
   
   /**
-   * @private
+   * @protected
    */
   AbstractWidget.ITEM_IS_KEY = ITEM_IS_KEY;
   /**
-   * @private
+   * @protected
    */
   AbstractWidget.UPDATE_IS_KEY = UPDATE_IS_KEY;
   
