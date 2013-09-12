@@ -1,5 +1,18 @@
-//JSDOC_IGNORE_START
+/*
+  Copyright 2013 Weswit Srl
 
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+*/
 define(["Inheritance","./CellMatrix","Executor","../Cell","Helpers","./FadersHandler","./AbstractWidget","IllegalArgumentException","IllegalStateException","LoggerManager"],
     function(Inheritance,CellMatrix,Executor,Cell,Helpers,FadersHandler,AbstractWidget,IllegalArgumentException,IllegalStateException,LoggerManager) {
   
@@ -386,7 +399,7 @@ define(["Inheritance","./CellMatrix","Executor","../Cell","Helpers","./FadersHan
        * @see Subscription#setFields
        */
       extractFieldList: function() {
-        return this.extractTypedFieldList(Cell._FIRST_LEVEL);
+        return this.extractTypedFieldList(Cell.FIRST_LEVEL);
       },
       
       /**
@@ -406,7 +419,7 @@ define(["Inheritance","./CellMatrix","Executor","../Cell","Helpers","./FadersHan
        * @see Subscription#setCommandSecondLevelFields
        */
       extractCommandSecondLevelFieldList: function() {
-        return this.extractTypedFieldList(Cell._SECOND_LEVEL);
+        return this.extractTypedFieldList(Cell.SECOND_LEVEL);
       },
       
       /**
@@ -538,7 +551,7 @@ define(["Inheritance","./CellMatrix","Executor","../Cell","Helpers","./FadersHan
             var hotCellStyle = cell.getNextHotArray(hotRowStyle);
             
             if (hotCellStyle) { //if hotCellStyle is not null coldCellStyle cannot be null
-              var _go = false;
+              var go = false;
               var c2h = false;
               var h2c = false;
               var bgHot = null; 
@@ -549,18 +562,18 @@ define(["Inheritance","./CellMatrix","Executor","../Cell","Helpers","./FadersHan
               //there are cell-bound styles: overwrite row-bound styles
               if (hotCellStyle) {
                 if (hotCellStyle[BG_ATTR]) {
-                  _go = true;
+                  go = true;
                   bgHot = hotCellStyle[BG_ATTR];
                   bgCold = coldCellStyle[BG_ATTR];
                 }
                 if (hotCellStyle[COLOR_ATTR]) {
-                  _go = true;
+                  go = true;
                   colHot = hotCellStyle[COLOR_ATTR];
                   colCold = coldCellStyle[COLOR_ATTR];
                 }
               }
               
-              if (_go) { //I have to do fading
+              if (go) { //I have to do fading
                 
                 if (cold2HotTime > 0) {
                   var updateCellCommand = Executor.packTask(slidingCell.asynchUpdateValue,slidingCell,[phaseNum,this.useInner]);

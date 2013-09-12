@@ -274,8 +274,8 @@ define(["Environment"],
   //expose constants
   Cell.HOT = HOT;
   Cell.COLD = COLD;
-  Cell._FIRST_LEVEL = FIRST_LEVEL;
-  Cell._SECOND_LEVEL = SECOND_LEVEL;
+  Cell.FIRST_LEVEL = FIRST_LEVEL;
+  Cell.SECOND_LEVEL = SECOND_LEVEL;
 
   /**
    * Extract elements from the DOM
