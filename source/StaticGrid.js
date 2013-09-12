@@ -217,8 +217,8 @@ define(["Inheritance","./AbstractGrid","./VisualUpdate","./Cell","./SlidingCell"
         } 
         
         var newCell = new Cell(cellElement);
-        var _table = newCell.getTable();
-        if (!_table || _table != this.id) {
+        var table = newCell.getTable();
+        if (!table || table != this.id) {
           throw new IllegalArgumentException(WRONG_GRID);
         }
         this.explicitSetting = true;
@@ -301,9 +301,9 @@ define(["Inheritance","./AbstractGrid","./VisualUpdate","./Cell","./SlidingCell"
         
         for (var j = 0; j < lsTags.length; j++) {
           
-          var _table = lsTags[j].getTable();
+          var table = lsTags[j].getTable();
           
-          if (!_table || _table != this.id) {
+          if (!table || table != this.id) {
             //this is not the table you're looking for
             continue;
           }
@@ -368,9 +368,9 @@ define(["Inheritance","./AbstractGrid","./VisualUpdate","./Cell","./SlidingCell"
        * @protected
        */
       computeItemSymbolsSet: function() {
-        var _cells = this.grid.getEntireMatrix();
+        var cells = this.grid.getEntireMatrix();
         var itemSymbolsSet = {};
-        for (var itemSymbol in _cells) {
+        for (var itemSymbol in cells) {
           itemSymbolsSet[itemSymbol] = true;
         }
         return itemSymbolsSet;
@@ -922,5 +922,3 @@ define(["Inheritance","./AbstractGrid","./VisualUpdate","./Cell","./SlidingCell"
   return StaticGrid;
   
 });
-
-//JSDOC_IGNORE_END
