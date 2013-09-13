@@ -13,7 +13,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 */
-define(["Inheritance","./CellMatrix","Executor","../Cell","Helpers",
+define(["Inheritance","./CellMatrix","Executor","./Cell","Helpers",
         "./FadersHandler","./AbstractWidget","IllegalArgumentException",
         "IllegalStateException","LoggerManager","Environment"],
     function(Inheritance,CellMatrix,Executor,Cell,Helpers,
