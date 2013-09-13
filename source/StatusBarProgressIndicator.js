@@ -141,6 +141,10 @@ define(["./LightstreamerConstants","Executor","Environment"],
       }
       
   };
+  
+  StatusBarProgressIndicator.prototype["onStatusChange"] = StatusBarProgressIndicator.prototype.onStatusChange;
+  StatusBarProgressIndicator.prototype["onListenStart"] = StatusBarProgressIndicator.prototype.onListenStart;
+  StatusBarProgressIndicator.prototype["onListenEnd"] = StatusBarProgressIndicator.prototype.onListenEnd;
 
   return StatusBarProgressIndicator;
   

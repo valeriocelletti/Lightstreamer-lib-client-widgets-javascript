@@ -358,6 +358,10 @@ define(["LoggerManager","Setter","Inheritance","./Cell","IllegalArgumentExceptio
     
   };
 
+  ChartLine.prototype["setYLabels"] = ChartLine.prototype.setYLabels;
+  ChartLine.prototype["setStyle"] = ChartLine.prototype.setStyle;
+  ChartLine.prototype["positionYAxis"] = ChartLine.prototype.positionYAxis;
+  ChartLine.prototype["getYField"] = ChartLine.prototype.getYField;
 
   Inheritance(ChartLine,Setter,"O");
   return ChartLine;

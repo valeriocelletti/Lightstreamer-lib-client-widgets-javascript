@@ -854,6 +854,14 @@ define(["Inheritance","./AbstractGrid","./VisualUpdate","./Cell","./SlidingCell"
       
   };
   
+  //closure compiler exports
+  StaticGrid.prototype["addCell"] = StaticGrid.prototype.addCell;
+  StaticGrid.prototype["setRootNode"] = StaticGrid.prototype.setRootNode;
+  StaticGrid.prototype["extractItemList"] = StaticGrid.prototype.extractItemList;
+  StaticGrid.prototype["parseHtml"] = StaticGrid.prototype.parseHtml;
+  StaticGrid.prototype["addListener"] = StaticGrid.prototype.addListener;
+  StaticGrid.prototype["removeListener"] = StaticGrid.prototype.removeListener;
+  StaticGrid.prototype["getListeners"] = StaticGrid.prototype.getListeners;
   
   
 //Listener Interface ---->

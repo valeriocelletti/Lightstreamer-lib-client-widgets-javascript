@@ -1089,6 +1089,18 @@ define(["Inheritance","./AbstractGrid","./Cell","./VisibleParent","./InvisiblePa
   
   };
   
+  //closure compiler exports
+  DynaGrid.prototype["setMaxDynaRows"] = DynaGrid.prototype.setMaxDynaRows;
+  DynaGrid.prototype["getMaxDynaRows"] = DynaGrid.prototype.getMaxDynaRows;
+  DynaGrid.prototype["goToPage"] = DynaGrid.prototype.goToPage;
+  DynaGrid.prototype["getCurrentPages"] = DynaGrid.prototype.getCurrentPages;
+  DynaGrid.prototype["setAutoScroll"] = DynaGrid.prototype.setAutoScroll;
+  DynaGrid.prototype["parseHtml"] = DynaGrid.prototype.parseHtml;
+  DynaGrid.prototype["clean"] = DynaGrid.prototype.clean;
+  DynaGrid.prototype["addListener"] = DynaGrid.prototype.addListener;
+  DynaGrid.prototype["removeListener"] = DynaGrid.prototype.removeListener;
+  DynaGrid.prototype["getListeners"] = DynaGrid.prototype.getListeners;
+  
 //Listener Interface ---->
   
   /**

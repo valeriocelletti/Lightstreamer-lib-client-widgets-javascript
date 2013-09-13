@@ -915,7 +915,21 @@ define(["./AbstractWidget","./Cell","LoggerManager","Inheritance","Helpers","Env
       
   };
   
-
+  //closure compiler exports
+  Chart.prototype["parseHtml"] = Chart.prototype.parseHtml;
+  Chart.prototype["configureArea"] = Chart.prototype.configureArea;
+  Chart.prototype["setXAxis"] = Chart.prototype.setXAxis;
+  Chart.prototype["addYAxis"] = Chart.prototype.addYAxis;
+  Chart.prototype["removeYAxis"] = Chart.prototype.removeYAxis;
+  Chart.prototype["positionXAxis"] = Chart.prototype.positionXAxis;
+  Chart.prototype["setXLabels"] = Chart.prototype.setXLabels;
+  Chart.prototype["addListener"] = Chart.prototype.addListener;
+  Chart.prototype["removeListener"] = Chart.prototype.removeListener;
+  Chart.prototype["getListeners"] = Chart.prototype.getListeners;
+  Chart.prototype["clean"] = Chart.prototype.clean;
+  Chart.prototype["onListenStart"] = Chart.prototype.onListenStart;
+  
+  
   
 //Listener Interface ---->    
   /**
@@ -1033,7 +1047,6 @@ define(["./AbstractWidget","./Cell","LoggerManager","Inheritance","Helpers","Env
       
   };
 //<----  Listener Interface      
-  
   
   
   Inheritance(Chart,AbstractWidget);

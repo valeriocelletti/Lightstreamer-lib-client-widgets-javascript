@@ -140,6 +140,13 @@ define(["List"],function(List) {
     }
   };
   
+  //closure compiler exports
+  SimpleChartListener.prototype["onListenStart"] = SimpleChartListener.prototype.onListenStart;
+  SimpleChartListener.prototype["onYOverflow"] = SimpleChartListener.prototype.onYOverflow;
+  SimpleChartListener.prototype["onXOverflow"] = SimpleChartListener.prototype.onXOverflow;
+  SimpleChartListener.prototype["onNewLine"] = SimpleChartListener.prototype.onNewLine;
+  SimpleChartListener.prototype["onRemovedLine"] = SimpleChartListener.prototype.onRemovedLine;
+  
   return SimpleChartListener;
 
 });

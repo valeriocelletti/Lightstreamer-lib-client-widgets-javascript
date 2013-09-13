@@ -693,7 +693,24 @@ define(["Inheritance","Matrix","LoggerManager","Setter","EventDispatcher",
        */ 
       mergeUpdate: function(key,newValues) {}
   };
-
+  
+  //closure compiler exports
+  AbstractWidget.prototype["onItemUpdate"] = AbstractWidget.prototype.onItemUpdate;
+  AbstractWidget.prototype["onClearSnapshot"] = AbstractWidget.prototype.onClearSnapshot;
+  AbstractWidget.prototype["onSubscription"] = AbstractWidget.prototype.onSubscription;
+  AbstractWidget.prototype["onUnsubscription"] = AbstractWidget.prototype.onUnsubscription;
+  AbstractWidget.prototype["onListenStart"] = AbstractWidget.prototype.onListenStart;
+  AbstractWidget.prototype["onListenEnd"] = AbstractWidget.prototype.onListenEnd;
+  AbstractWidget.prototype["removeRow"] = AbstractWidget.prototype.removeRow;
+  AbstractWidget.prototype["updateRow"] = AbstractWidget.prototype.updateRow;
+  AbstractWidget.prototype["clean"] = AbstractWidget.prototype.clean;
+  AbstractWidget.prototype["getValue"] = AbstractWidget.prototype.getValue;
+  AbstractWidget.prototype["setAutoCleanBehavior"] = AbstractWidget.prototype.setAutoCleanBehavior;
+  AbstractWidget.prototype["parseHtml"] = AbstractWidget.prototype.parseHtml;
+  AbstractWidget.prototype["updateRowExecution"] = AbstractWidget.prototype.updateRowExecution;
+  AbstractWidget.prototype["removeRowExecution"] = AbstractWidget.prototype.removeRowExecution;
+  AbstractWidget.prototype["mergeUpdate"] = AbstractWidget.prototype.mergeUpdate;
+  
   Inheritance(AbstractWidget,EventDispatcher,false,true);
   Inheritance(AbstractWidget,Setter,true,true);
   return AbstractWidget;

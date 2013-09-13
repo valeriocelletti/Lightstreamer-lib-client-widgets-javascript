@@ -762,6 +762,12 @@ define(["Environment","IllegalArgumentException","Helpers","./LightstreamerConst
         }
       }
   };
+  
+  //closure compiler eports
+  StatusWidget.prototype["onStatusChange"] = StatusWidget.prototype.onStatusChange;
+  StatusWidget.prototype["onListenStart"] = StatusWidget.prototype.onListenStart;
+  StatusWidget.prototype["onListenEnd"] = StatusWidget.prototype.onListenEnd;
+  StatusWidget.prototype["getDomNode"] = StatusWidget.prototype.getDomNode;
 
   return StatusWidget;
   

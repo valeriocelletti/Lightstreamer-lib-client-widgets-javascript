@@ -79,7 +79,9 @@ define(["Environment"], function(Environment) {
         }
       }
   };
-
+  
+  StatusImageWidget.prototype["onStatusChange"] = StatusImageWidget.prototype.onStatusChange;
+ 
   return StatusImageWidget;
   
 });  

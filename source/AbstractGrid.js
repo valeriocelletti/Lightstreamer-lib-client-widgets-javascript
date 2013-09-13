@@ -655,11 +655,6 @@ define(["Inheritance","./CellMatrix","Executor","./Cell","Helpers",
        * abstract method
        * @protected
        */ 
-      parseHtml: function() {},
-      /** 
-       * abstract method
-       * @protected
-       */ 
       sortTable: function() {},   
       /** 
        * abstract method
@@ -668,6 +663,23 @@ define(["Inheritance","./CellMatrix","Executor","./Cell","Helpers",
       computeFieldSymbolsSet: function(type){}
       
   };
+  
+  //closure compiler exports
+  AbstractGrid.prototype["setHtmlInterpretationEnabled"] = AbstractGrid.prototype.setHtmlInterpretationEnabled;
+  AbstractGrid.prototype["isHtmlInterpretationEnabled"] = AbstractGrid.prototype.isHtmlInterpretationEnabled;
+  AbstractGrid.prototype["setNodeTypes"] = AbstractGrid.prototype.setNodeTypes;
+  AbstractGrid.prototype["getNodeTypes"] = AbstractGrid.prototype.getNodeTypes;
+  AbstractGrid.prototype["setAddOnTop"] = AbstractGrid.prototype.setAddOnTop;
+  AbstractGrid.prototype["isAddOnTop"] = AbstractGrid.prototype.isAddOnTop;
+  AbstractGrid.prototype["setSort"] = AbstractGrid.prototype.setSort;
+  AbstractGrid.prototype["getSortField"] = AbstractGrid.prototype.getSortField;
+  AbstractGrid.prototype["isDescendingSort"] = AbstractGrid.prototype.isDescendingSort;
+  AbstractGrid.prototype["isNumericSort"] = AbstractGrid.prototype.isNumericSort;
+  AbstractGrid.prototype["isCommaAsDecimalSeparator"] = AbstractGrid.prototype.isCommaAsDecimalSeparator;
+  AbstractGrid.prototype["extractFieldList"] = AbstractGrid.prototype.extractFieldList;
+  AbstractGrid.prototype["extractCommandSecondLevelFieldList"] = AbstractGrid.prototype.extractCommandSecondLevelFieldList;
+  AbstractGrid.prototype["parseHtml"] = AbstractGrid.prototype.parseHtml;
+  AbstractGrid.prototype["forceSubscriptionInterpretation"] = AbstractGrid.prototype.forceSubscriptionInterpretation;
   
   Inheritance(AbstractGrid,AbstractWidget);
   return AbstractGrid;

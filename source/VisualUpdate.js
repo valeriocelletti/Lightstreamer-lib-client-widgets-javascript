@@ -448,6 +448,18 @@ define(["LoggerManager","Inheritance","Setter","IllegalArgumentException"],
     
   };
   
+  //closure compiler exports
+  VisualUpdate.prototype["getCellValue"] = VisualUpdate.prototype.getCellValue;
+  VisualUpdate.prototype["setCellValue"] = VisualUpdate.prototype.setCellValue;
+  VisualUpdate.prototype["getChangedFieldValue"] = VisualUpdate.prototype.getChangedFieldValue;
+  VisualUpdate.prototype["setHotTime"] = VisualUpdate.prototype.setHotTime;
+  VisualUpdate.prototype["setColdToHotTime"] = VisualUpdate.prototype.setColdToHotTime;
+  VisualUpdate.prototype["setHotToColdTime"] = VisualUpdate.prototype.setHotToColdTime;
+  VisualUpdate.prototype["setAttribute"] = VisualUpdate.prototype.setAttribute;
+  VisualUpdate.prototype["setStyle"] = VisualUpdate.prototype.setStyle;
+  VisualUpdate.prototype["setCellAttribute"] = VisualUpdate.prototype.setCellAttribute;
+  VisualUpdate.prototype["setCellStyle"] = VisualUpdate.prototype.setCellStyle;
+  VisualUpdate.prototype["forEachChangedField"] = VisualUpdate.prototype.forEachChangedField;
   
   Inheritance(VisualUpdate,Setter,true,true);
   return VisualUpdate;
