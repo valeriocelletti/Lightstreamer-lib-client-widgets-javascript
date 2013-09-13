@@ -15,10 +15,12 @@
 */
 define(["Inheritance","./AbstractGrid","./VisualUpdate","./Cell","./SlidingCell","./CellMatrix",
         "IllegalArgumentException","IllegalStateException","Helpers","ASSERT",
-        "LoggerManager","DoubleKeyMap"],
+        "LoggerManager","DoubleKeyMap","Environment"],
     function(Inheritance,AbstractGrid,VisualUpdate,Cell,SlidingCell,CellMatrix,
         IllegalArgumentException,IllegalStateException,Helpers,ASSERT,
-        LoggerManager,DoubleKeyMap) {
+        LoggerManager,DoubleKeyMap,Environment) {
+  
+  Environment.browserDocumentOrDie();
   
   var NULL_CELL = "The given cell is null or undefined";
   var WRONG_GRID = "The cell does not belong to the Grid";

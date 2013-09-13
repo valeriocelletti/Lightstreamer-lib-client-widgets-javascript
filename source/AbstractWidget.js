@@ -13,8 +13,10 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 */
-define(["Inheritance","Matrix","LoggerManager","Setter","EventDispatcher","IllegalStateException","./LightstreamerConstants","DoubleKeyMatrix"],
-    function(Inheritance,Matrix,LoggerManager,Setter,EventDispatcher,IllegalStateException,LightstreamerConstants,DoubleKeyMatrix) {
+define(["Inheritance","Matrix","LoggerManager","Setter","EventDispatcher",
+        "IllegalStateException","./LightstreamerConstants","DoubleKeyMatrix"],
+    function(Inheritance,Matrix,LoggerManager,Setter,EventDispatcher,
+        IllegalStateException,LightstreamerConstants,DoubleKeyMatrix) {
   
   var gridsLogger = LoggerManager.getLoggerProxy("lightstreamer.grids");
   

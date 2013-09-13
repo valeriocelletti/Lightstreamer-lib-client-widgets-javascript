@@ -13,9 +13,11 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 */
-define(["./ColorConverter","Executor","Helpers","./Cell"], 
-    function(ColorConverter,Executor,Helpers,Cell){  
+define(["./ColorConverter","Executor","Helpers","./Cell","Environment"], 
+    function(ColorConverter,Executor,Helpers,Cell,Environment){  
 
+  Environment.browserDocumentOrDie();
+  
   //may convert into a full animation engine
   
   /**

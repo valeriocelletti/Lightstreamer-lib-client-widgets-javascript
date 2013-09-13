@@ -14,9 +14,13 @@
   limitations under the License.
 */
 define(["Inheritance","./AbstractGrid","./Cell","./VisibleParent","./InvisibleParent","./DynaElement",
-        "BrowserDetection","./VisualUpdate","IllegalArgumentException","IllegalStateException","LoggerManager","ASSERT"],
+        "BrowserDetection","./VisualUpdate","IllegalArgumentException","IllegalStateException",
+        "LoggerManager","ASSERT","Environment"],
     function(Inheritance,AbstractGrid,Cell,VisibleParent,InvisibleParent,DynaElement,
-        BrowserDetection,VisualUpdate,IllegalArgumentException,IllegalStateException,LoggerManager,ASSERT) {
+        BrowserDetection,VisualUpdate,IllegalArgumentException,IllegalStateException,
+        LoggerManager,ASSERT,Environment) {
+  
+  Environment.browserDocumentOrDie();
   
   var ELEMENT = "ELEMENT";
   var PAGE = "PAGE";
