@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="require.js"></script>
+  <script src="utility-toolkit.js"></script>
+  <script src="utility-logging.js"></script>
+  <script src="utility-test.js"></script>
+   
+</head>  
+<body>
+  <div id="src">
+    <div>Running test against sources</div>
+    <a href="?min">Click here to run against minified code</a>
+  </div>
+  <div id="min">
+    <div>Running test against minified code</div>
+    <a href="?src">Click here to run against source code</a>
+  </div>
+
+
+  <script>
+    var weswitClassPrefix = "";
+    if (document.location.search == "?min") {
+      document.getElementById("src").style.display = "none";
+    } else {
+      document.getElementById("min").style.display = "none";
+      weswitClassPrefix = "../../source/"
+    }
+  
+      
+    var testLibs = [
+                    "classes/Cell",
+                  //  "classes/Chart",
+                    "classes/ColorConverter",
+                    "classes/DynaGrid-parse",
+                    "classes/DynaGrid-scroll",
+                    "classes/DynaGrid-sort",
+                  //  "classes/FadersHandler"
+                   ];
+	  
+	  
+	  define("classes", testLibs, function() {
+	    return arguments;
+	  });
+
+  
+	  require(["TestRunnerConfiguration"],function() {
+	    //tests are now running
+	  });
+		 
+  </script>
+</body>
+</html>  

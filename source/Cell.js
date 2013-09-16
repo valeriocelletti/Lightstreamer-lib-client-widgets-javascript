@@ -41,10 +41,6 @@ define(["Environment"],
   
   var VOID_VAL = "\u00A0"; //Costante da inserire nelle celle in DOM per svuotarle.
   //var VOID_HTML = "&nbsp;"; //?
-  
-  //both old and new names are accepted (i.e.: with or without the data- prefix)
-  //we will not admit a mix of old and new though
-  var useOldNames = null; 
  
   var SOURCE_ATTR_NAME = "source";
   var SOURCE_ATTR_VALUE = "lightstreamer";
@@ -56,23 +52,22 @@ define(["Environment"],
   
   //reads an attribute from an element
   function getLSAttribute(el,name) {
-    
-    if (useOldNames === false) {
+    if (Cell.useOldNames === false) {
       return getNewAttribute(el,name);
     
-    } else if (useOldNames === true) {
+    } else if (Cell.useOldNames === true) {
       return getOldAttribute(el,name);
       
     } else {
       var res = getNewAttribute(el,name);
       if (res) {
-        useOldNames = false;
+        Cell.useOldNames = false;
         return res;
       }
       
       res = getOldAttribute(el,name);
       if (res) {
-        useOldNames = true;
+        Cell.useOldNames = true;
       }
       return res;
       
@@ -115,7 +110,7 @@ define(["Environment"],
    */
   function verifyTag (node) {
     var str = getLSAttribute(node,SOURCE_ATTR_NAME);
-    return str && str.toUpperCase() == SOURCE_ATTR_VALUE;
+    return str && str.toLowerCase() == SOURCE_ATTR_VALUE;
   }
   
   
@@ -276,6 +271,11 @@ define(["Environment"],
   Cell.COLD = COLD;
   Cell.FIRST_LEVEL = FIRST_LEVEL;
   Cell.SECOND_LEVEL = SECOND_LEVEL;
+  
+  //both old and new names are accepted (i.e.: with or without the data- prefix)
+  //we will not admit a mix of old and new though
+  Cell.useOldNames = null; //this is only exposed for test purposes 
+  
 
   /**
    * Extract elements from the DOM
@@ -297,7 +297,6 @@ define(["Environment"],
         }
       }
     }
-    
     return lsTags;
   };
   
@@ -530,6 +529,9 @@ define(["Environment"],
       this.setAttributes(this.initialStyles);
     }
   };
+  
+  
+  
   
   return Cell;
 

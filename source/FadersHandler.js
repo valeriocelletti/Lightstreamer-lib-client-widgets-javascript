@@ -114,7 +114,7 @@ define(["./ColorConverter","Executor","Helpers","./Cell","Environment"],
     
     /*public*/ stopFader: function(cell) {
       var oldId = this.runningFaders[cell.getCellId()];
-      if (oldId) {
+      if (oldId || oldId == 0) {
         delete(this.runningFaders[cell.getCellId()]);
         this.freeFaders.put(oldId);
       }
