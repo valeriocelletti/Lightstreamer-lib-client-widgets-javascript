@@ -130,10 +130,9 @@ define([weswitClassPrefix+"DynaGrid","./HtmlTest","Inheritance","ASSERT"],
       grid = new DynaGrid("foo8");
       ASSERT.verifySuccess(grid,"setNodeTypes",[["code"]],ASSERT.VOID);
       ASSERT.verifySuccess(grid,"parseHtml",ASSERT.VOID,ASSERT.VOID);
-      this.verifyExtraction(grid,"extractFieldList",["first","second","third"]);
-      this.verifyExtraction(grid,"extractCommandSecondLevelFieldList",[]);
+      this.verifyExtractions(grid,["first","second","third"],[]);
 
-
+      
       testLogger.debug("9 parse fails (no source template)");
       this.write(
           '<div id="foo9">' +
