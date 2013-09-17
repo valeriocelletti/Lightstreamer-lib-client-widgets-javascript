@@ -54,7 +54,7 @@ define([weswitClassPrefix+"ColorConverter","./HtmlTest","Inheritance","ASSERT"],
       ASSERT.verifySuccess(ColorConverter,"getStyle",[document.getElementById("foo"),"color"],true,doPush);
     
       for (var i=0; i<res.length; i++) {
-        testLogger.info("Verifiying",i); 
+        testLogger.debug("Verifiying " + i); 
         ASSERT.compareArrays(res[i],expecting,true);
       }      
       

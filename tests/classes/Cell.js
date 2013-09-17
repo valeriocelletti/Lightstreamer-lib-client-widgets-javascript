@@ -58,7 +58,7 @@ define([weswitClassPrefix+"Cell","./HtmlTest","Inheritance","ASSERT","BrowserDet
         return ASSERT.verifyValue(v1.length,6);
       });
       
-      testLogger.info("Verify c4 attached to dom");
+      testLogger.debug("Verify c4 attached to dom");
       ASSERT.verifySuccess(Cell,"isAttachedToDOM",[document.getElementById("c4")],true);
       
       var waiting = {c1:true, c2:true, c3:true, c4:true, c5:true, c6:true};
@@ -67,12 +67,12 @@ define([weswitClassPrefix+"Cell","./HtmlTest","Inheritance","ASSERT","BrowserDet
         ASSERT.verifySuccess(cells[i],"updateCSSClass",["updated"],ASSERT.VOID);
         ASSERT.verifySuccess(cells[i],"setAttributes",[{fontWeight:"bold",borderColor:"green"}],ASSERT.VOID);
                 
-        testLogger.info("Verify cell "+cells[i]+" attached to dom");
+        testLogger.debug("Verify cell "+cells[i]+" attached to dom");
         ASSERT.verifySuccess(cells[i],"isAttachedToDOM",ASSERT.VOID,true);
         ASSERT.verifySuccess(cells[i],"isAttachedToDOMById",ASSERT.VOID,true);
         
         var val = null;
-        testLogger.info("Verify cell "+cells[i]+" value");
+        testLogger.debug("Verify cell "+cells[i]+" value");
         ASSERT.verifySuccess(cells[i],"retrieveValue",ASSERT.VOID,true,function(v1,v2) {
           if (v1 in waiting) {
             val = v1;
@@ -83,7 +83,7 @@ define([weswitClassPrefix+"Cell","./HtmlTest","Inheritance","ASSERT","BrowserDet
           }
         });
         
-        testLogger.info("Verify cell "+cells[i]+" update value");
+        testLogger.debug("Verify cell "+cells[i]+" update value");
         ASSERT.verifySuccess(cells[i],"updateValue",["/u"+val],ASSERT.VOID);
         
         var expect = "/u"+val;
@@ -105,7 +105,7 @@ define([weswitClassPrefix+"Cell","./HtmlTest","Inheritance","ASSERT","BrowserDet
       var removeItCell = new Cell(removeIt);
       removeIt.parentNode.removeChild(removeIt);
       
-      testLogger.info("Verify removed cell");
+      testLogger.debug("Verify removed cell");
       ASSERT.verifySuccess(removeItCell,"isAttachedToDOM",ASSERT.VOID,false);
       ASSERT.verifySuccess(removeItCell,"isAttachedToDOMById",ASSERT.VOID,false);
       
@@ -118,22 +118,22 @@ define([weswitClassPrefix+"Cell","./HtmlTest","Inheritance","ASSERT","BrowserDet
       ASSERT.verifySuccess(toCell,"scrollHere",[fromCell],ASSERT.VOID);
       ASSERT.verifySuccess(fromCell,"scrollHere",[fakeCell],ASSERT.VOID);
 
-      testLogger.info("Verify cell-scrolling");
-      testLogger.info("to value");
+      testLogger.debug("Verify cell-scrolling");
+      testLogger.debug("to value");
       ASSERT.verifySuccess(toCell,"retrieveValue",ASSERT.VOID,"/uc4");
-      testLogger.info("from value");
+      testLogger.debug("from value");
       ASSERT.verifySuccess(fromCell,"retrieveValue",ASSERT.VOID, "/uc5");
-      testLogger.info("to BG");
+      testLogger.debug("to BG");
       ASSERT.verifyValue(toCell.el.style.backgroundColor,"red");
-      testLogger.info("from BG");
+      testLogger.debug("from BG");
       ASSERT.verifyValue(fromCell.el.style.backgroundColor,"");
       
       ASSERT.verifySuccess(fromCell,"clean",ASSERT.VOID,ASSERT.VOID);
-      testLogger.info("Verify after clean");
+      testLogger.debug("Verify after clean");
       ASSERT.verifySuccess(fromCell,"retrieveValue",ASSERT.VOID, "/uc4"); //cell created when val was already uc4
       ASSERT.verifyValue(fromCell.el.style.backgroundColor,"red");
           
-      testLogger.info("TEST COMPLETE");
+      testLogger.debug("TEST COMPLETE");
       
       this.end();
     }
