@@ -8,6 +8,11 @@
    
 </head>  
 <body>
+  <script>
+    var TEST_SERVER = "http://push.lightstreamer.com";
+  </script>
+
+
   <div id="src">
     <div>Running test against sources</div>
     <a href="?min">Click here to run against minified code</a>
@@ -30,12 +35,17 @@
       
     var testLibs = [
                     "classes/Cell",
-                  //  "classes/Chart",
+                    "classes/Chart",
                     "classes/ColorConverter",
                     "classes/DynaGrid-parse",
                     "classes/DynaGrid-scroll",
                     "classes/DynaGrid-sort",
-                  //  "classes/FadersHandler"
+                    "classes/FadersHandler",
+                    "classes/Grids-add-remove",  
+                    "classes/Grids-get-set",
+                    "classes/StaticGrid-parse",
+                    "classes/StaticGrid-sort",
+                    "classes/StatusWidget"
                    ];
 	  
 	  
