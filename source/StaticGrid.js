@@ -266,7 +266,7 @@ define(["Inheritance","./AbstractGrid","./VisualUpdate","./Cell","./SlidingCell"
       extractItemList: function() {
         this.checkParsed();
         
-        if (!this.usingItems) {
+        if (this.usingItems === false) {
           throw new IllegalStateException(NO_ITEMS_TO_EXTRACT);
         }
         
