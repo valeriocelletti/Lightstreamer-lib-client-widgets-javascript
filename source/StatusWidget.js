@@ -14,7 +14,7 @@
   limitations under the License.
 */
 define(["Environment","IllegalArgumentException","Helpers","./LightstreamerConstants","Executor","BrowserDetection"], 
-    function(Environment,IllegalArgumentException,Helpers,Constants,Executor,BrowserDetection) {
+    function(Environment,IllegalArgumentException,Helpers,LightstreamerConstants,Executor,BrowserDetection) {
 
   Environment.browserDocumentOrDie();
   
@@ -489,7 +489,7 @@ define(["Environment","IllegalArgumentException","Helpers","./LightstreamerConst
         if (this.noToggle || widgetDisabled) {
           return;
         }
-        
+
         if(!this.ready) {
           this.readyStatusOpen = !this.readyStatusOpen;
         } else {
@@ -740,7 +740,6 @@ define(["Environment","IllegalArgumentException","Helpers","./LightstreamerConst
        * @private
        */
       transitionendHandler: function() {
-
         if (this.isLeftBorder) {
           if (this.widgetNode.style.left == LEFT_OPEN) {
             this.widgetArrowNode.innerHTML = LEFT_ARROW;
@@ -758,7 +757,6 @@ define(["Environment","IllegalArgumentException","Helpers","./LightstreamerConst
             this.widgetArrowNode.innerHTML = LEFT_ARROW;
             this.toggleState = "closed";      
           }
-
         }
       }
   };
