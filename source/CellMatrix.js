@@ -201,7 +201,8 @@ define(["Matrix","Inheritance","./Cell"],
       },
       
       forEachCell: function(cb) {
-        for (var i in this.matrix) {
+        var matrix = this.getEntireMatrix();
+        for (var i in matrix) {
           this.forEachCellInRow(i,cb);
         }
       },
