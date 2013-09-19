@@ -22,13 +22,13 @@ define(["Environment"],
   var TABLE = "grid";
   var ROW = "row";
   var ITEM = "item";
-  var UPDATE = "upd"+"ate";
+  var UPDATE = "update";
   var VALUE = "value";
   var IDENTIFICATION_NUMBER = "replica";
   
   var TYPE = "fieldtype";
   var VALID_TYPES = {
-    extra: true,
+    "extra": true,
     "first-level": true,
     "second-level": true
   };
@@ -46,8 +46,8 @@ define(["Environment"],
   var SOURCE_ATTR_VALUE = "lightstreamer";
   
   var valueType= {
-      input: true,
-      textarea: true};
+      "input": true,
+      "textarea": true};
   
   
   //reads an attribute from an element
