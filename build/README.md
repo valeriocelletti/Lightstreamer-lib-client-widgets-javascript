@@ -20,9 +20,10 @@ Windows
 java -cp compiler.jar;js.jar org.mozilla.javascript.tools.shell.Main r.js -o app.build.js
 ```
 
-Built files will be available in the built folder. Note that the utility-logging.js file
-will contain all the modules.
-
+Built files will be available in the built folder. Note that the lightstreamer-widgets.js file
+will contain all the modules together with modules imported from the [utility-toolkit](https://github.com/mone/Weswit/utility-toolkit-javascript), 
+[utility-logging](https://github.com/mone/Weswit/utility-logging-javascript) and [utility-test](https://github.com/mone/Weswit/utility-test-javascript) 
+libraries.
 
 # Generate The Documentation #
 
