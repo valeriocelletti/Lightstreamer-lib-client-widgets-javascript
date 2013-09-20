@@ -1,0 +1,9 @@
+[submodule "libs/utility-toolkit"]
+	path = libs/utility-toolkit
+	url = https://github.com/Weswit/utility-toolkit-javascript
+[submodule "libs/utility-logging"]
+	path = libs/utility-logging
+	url = https://github.com/Weswit/utility-logging-javascript
+[submodule "libs/utility-test"]
+	path = libs/utility-test
+	url = https://github.com/Weswit/utility-test-javascript
