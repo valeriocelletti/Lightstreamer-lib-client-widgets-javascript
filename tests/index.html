@@ -5,7 +5,8 @@
   <script src="utility-toolkit.js"></script>
   <script src="utility-logging.js"></script>
   <script src="utility-test.js"></script>
-   
+  <script src="lightstreamer.js"></script>
+  <script src="../built/lightstreamer-widgets.js"></script>
 </head>  
 <body>
   <script>
@@ -30,7 +31,7 @@
     } else {
       document.getElementById("min").style.display = "none";
       weswitClassPrefix = "../../source/"
-    }
+    } 
   
       
     var testLibs = [
@@ -47,17 +48,17 @@
                     "classes/StaticGrid-sort",
                     "classes/StatusWidget"
                    ];
-	  
-	  
-	  define("classes", testLibs, function() {
-	    return arguments;
-	  });
+    
+    
+    define("classes", testLibs, function() {
+      return arguments;
+    });
 
   
-	  require(["TestRunnerConfiguration"],function() {
-	    //tests are now running
-	  });
-		 
+    require(["TestRunnerConfiguration"],function() {
+      //tests are now running
+    });
+     
   </script>
 </body>
 </html>  
