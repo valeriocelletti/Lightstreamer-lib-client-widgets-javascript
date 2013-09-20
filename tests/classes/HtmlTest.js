@@ -13,7 +13,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 */
-define(["AbstractTest","Inheritance","ASSERT","Dismissable"],
+define(["weswit/AbstractTest","weswit/Inheritance","weswit/ASSERT","weswit/Dismissable"],
     function(AbstractTest,Inheritance,ASSERT,Dismissable) {
   
   var css = {};

@@ -1,4 +1,4 @@
-define(["SimpleLoggerProvider","ConsoleAppender","LoggerManager"], 
+define(["weswit/SimpleLoggerProvider","weswit/ConsoleAppender","weswit/LoggerManager"], 
   function(SimpleLoggerProvider,ConsoleAppender,LoggerManager) {
     var log = LoggerManager.getLoggerProxy("weswit.test");
   

@@ -13,7 +13,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 */
-define([weswitClassPrefix+"DynaGrid",weswitClassPrefix+"StaticGrid","./HtmlTest","Inheritance","ASSERT","Helpers"],
+define([weswitClassPrefix+"DynaGrid",weswitClassPrefix+"StaticGrid","./HtmlTest","weswit/Inheritance","weswit/ASSERT","weswit/Helpers"],
     function(DynaGrid,StaticGrid,HtmlTest,Inheritance,ASSERT,Helpers) {
    
   var testLogger = HtmlTest.testLogger;
@@ -234,6 +234,8 @@ define([weswitClassPrefix+"DynaGrid",weswitClassPrefix+"StaticGrid","./HtmlTest"
       this.check(_3_4_5_6_7_8_9_10_11);
       this.add(12);
       this.check(_3_4_5_6_7_8_9_10_11_12);
+      //////////
+      
       this.add(13);
       this.check(_4_5_6_7_8_9_10_11_12_13);
       this.add(14);

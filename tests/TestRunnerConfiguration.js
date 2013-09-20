@@ -1,4 +1,4 @@
-define(["TestRunner","ASSERT","classes","./TestLogConfiguration"], 
+define(["weswit/TestRunner","weswit/ASSERT","classes","./TestLogConfiguration"], 
         function(TestRunner,ASSERT,classes,log) {
     
   var mainRunner = new TestRunner();

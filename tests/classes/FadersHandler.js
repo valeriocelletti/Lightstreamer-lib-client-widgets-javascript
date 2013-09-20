@@ -14,7 +14,7 @@
   limitations under the License.
 */
 define([weswitClassPrefix+"FadersHandler",weswitClassPrefix+"ColorConverter",weswitClassPrefix+"Cell",
-        "./HtmlTest","Inheritance","ASSERT","Executor"],
+        "./HtmlTest","weswit/Inheritance","weswit/ASSERT","weswit/Executor"],
     function(FadersHandler,ColorConverter,Cell,
         HtmlTest,Inheritance,ASSERT,Executor) {
    

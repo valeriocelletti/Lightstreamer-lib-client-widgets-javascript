@@ -13,7 +13,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 */
-define([weswitClassPrefix+"StaticGrid","./HtmlTest","Inheritance","ASSERT"],
+define([weswitClassPrefix+"StaticGrid","./HtmlTest","weswit/Inheritance","weswit/ASSERT"],
     function(StaticGrid,HtmlTest,Inheritance,ASSERT) {
   
   var testLogger = HtmlTest.testLogger;
@@ -145,7 +145,7 @@ define([weswitClassPrefix+"StaticGrid","./HtmlTest","Inheritance","ASSERT"],
           third: true
         }
       });
-      
+   
       testLogger.debug("3 extract schema + sub fields + group");
       this.write(
           '<div data-source="lightstreamer" data-grid="foo3" data-item="item1" data-field="first" ></div>'+
@@ -323,7 +323,6 @@ define([weswitClassPrefix+"StaticGrid","./HtmlTest","Inheritance","ASSERT"],
     verifyInternals: function(grid,expected) {
       //code that follows require non-minified code
       if (!grid.quickSort) {
-        this.end();
         return;
       }
       

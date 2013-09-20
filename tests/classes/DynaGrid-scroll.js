@@ -13,7 +13,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 */
-define([weswitClassPrefix+"DynaGrid","./HtmlTest","Inheritance","ASSERT"],
+define([weswitClassPrefix+"DynaGrid","./HtmlTest","weswit/Inheritance","weswit/ASSERT"],
     function(DynaGrid,HtmlTest,Inheritance,ASSERT) {
    
   var testLogger = HtmlTest.testLogger;

@@ -13,7 +13,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 */
-define([weswitClassPrefix+"StatusWidget","AbstractTest","Inheritance","ASSERT"],
+define([weswitClassPrefix+"StatusWidget","weswit/AbstractTest","weswit/Inheritance","weswit/ASSERT"],
     function(StatusWidget,AbstractTest,Inheritance,ASSERT) {
    
   var testLogger = AbstractTest.testLogger;

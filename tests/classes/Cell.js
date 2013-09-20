@@ -13,7 +13,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 */
-define([weswitClassPrefix+"Cell","./HtmlTest","Inheritance","ASSERT","BrowserDetection"],
+define([weswitClassPrefix+"Cell","./HtmlTest","weswit/Inheritance","weswit/ASSERT","weswit/BrowserDetection"],
     function(Cell,HtmlTest,Inheritance,ASSERT,BrowserDetection) {
    
   var testLogger = HtmlTest.testLogger;

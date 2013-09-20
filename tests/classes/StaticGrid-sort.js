@@ -13,7 +13,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 */
-define([weswitClassPrefix+"StaticGrid","./HtmlTest","Inheritance","ASSERT","Helpers"],
+define([weswitClassPrefix+"StaticGrid","./HtmlTest","weswit/Inheritance","weswit/ASSERT","weswit/Helpers"],
     function(StaticGrid,HtmlTest,Inheritance,ASSERT,Helpers) {
    
   var testLogger = HtmlTest.testLogger;
