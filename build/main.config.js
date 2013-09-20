@@ -16,6 +16,8 @@ require({
         avoidGlobals: true
     },
 
+    //this will prevent the initial module search from searching the
+    //required imported modules*
     paths: {
       "ASSERT": "empty:",
       "BrowserDetection": "empty:",
@@ -35,12 +37,11 @@ require({
       "Setter": "empty:"
     },
     
-    removeCombined: true,
-    
+    //we could remove the ASSERT calls
     /*pragmas: {
       debugExclude: true
     },*/
-    
+
     modules: [
       {
         name: "lightstreamer-widgets",
@@ -59,11 +60,32 @@ require({
           "StatusBarProgressIndicator",
           "StatusImageWidget",
           "StatusWidget",
-          "VisualUpdate"
+          "VisualUpdate",
+          // *then we import them from the import folder*
+          "../libs/utility-test/source/ASSERT",
+          "../libs/utility-toolkit/source/BrowserDetection",
+          "../libs/utility-toolkit/source/DoubleKeyMap",
+          "../libs/utility-toolkit/source/DoubleKeyMatrix",
+          "../libs/utility-toolkit/source/Environment",
+          "../libs/utility-toolkit/source/EventDispatcher",
+          "../libs/utility-toolkit/source/Executor",
+          "../libs/utility-toolkit/source/Helpers",
+          "../libs/utility-toolkit/source/IFrameHandler",
+          "../libs/utility-toolkit/source/IllegalArgumentException",
+          "../libs/utility-toolkit/source/IllegalStateException",
+          "../libs/utility-toolkit/source/Inheritance",
+          "../libs/utility-toolkit/source/List",
+          "../libs/utility-logging/source/LoggerManager",
+          "../libs/utility-toolkit/source/Matrix",
+          "../libs/utility-toolkit/source/Setter"
         ]
       }
     ],
+    
+    // *and we transform them to make them "local" (in our sources they're referenced by name ie without path.
+    onBuildWrite: function (moduleName, path, contents) {
+      return contents.replace("../libs/utility-toolkit/source/","").replace("../libs/utility-test/source/","").replace("../libs/utility-logging/source/","");
+    },
         
     preserveLicenseComments: false
-
 })
