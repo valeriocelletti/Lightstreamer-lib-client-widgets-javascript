@@ -862,6 +862,8 @@ define(["Inheritance","./AbstractGrid","./VisualUpdate","./Cell","./SlidingCell"
   StaticGrid.prototype["addListener"] = StaticGrid.prototype.addListener;
   StaticGrid.prototype["removeListener"] = StaticGrid.prototype.removeListener;
   StaticGrid.prototype["getListeners"] = StaticGrid.prototype.getListeners;
+  StaticGrid.prototype["updateRowExecution"] = StaticGrid.prototype.updateRowExecution;
+  StaticGrid.prototype["removeRowExecution"] = StaticGrid.prototype.removeRowExecution;
   
   
 //Listener Interface ---->

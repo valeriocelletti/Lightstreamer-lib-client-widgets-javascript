@@ -1100,6 +1100,8 @@ define(["Inheritance","./AbstractGrid","./Cell","./VisibleParent","./InvisiblePa
   DynaGrid.prototype["addListener"] = DynaGrid.prototype.addListener;
   DynaGrid.prototype["removeListener"] = DynaGrid.prototype.removeListener;
   DynaGrid.prototype["getListeners"] = DynaGrid.prototype.getListeners;
+  DynaGrid.prototype["updateRowExecution"] = DynaGrid.prototype.updateRowExecution;
+  DynaGrid.prototype["removeRowExecution"] = DynaGrid.prototype.removeRowExecution;
   
 //Listener Interface ---->
   

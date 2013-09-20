@@ -928,6 +928,8 @@ define(["./AbstractWidget","./Cell","LoggerManager","Inheritance","Helpers","Env
   Chart.prototype["getListeners"] = Chart.prototype.getListeners;
   Chart.prototype["clean"] = Chart.prototype.clean;
   Chart.prototype["onListenStart"] = Chart.prototype.onListenStart;
+  Chart.prototype["updateRowExecution"] = Chart.prototype.updateRowExecution;
+  Chart.prototype["removeRowExecution"] = Chart.prototype.removeRowExecution;
   
   
   

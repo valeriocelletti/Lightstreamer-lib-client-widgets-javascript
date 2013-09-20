@@ -680,6 +680,8 @@ define(["Inheritance","./CellMatrix","Executor","./Cell","Helpers",
   AbstractGrid.prototype["extractCommandSecondLevelFieldList"] = AbstractGrid.prototype.extractCommandSecondLevelFieldList;
   AbstractGrid.prototype["parseHtml"] = AbstractGrid.prototype.parseHtml;
   AbstractGrid.prototype["forceSubscriptionInterpretation"] = AbstractGrid.prototype.forceSubscriptionInterpretation;
+  AbstractGrid.prototype["updateRowExecution"] = AbstractGrid.prototype.updateRowExecution;
+  AbstractGrid.prototype["removeRowExecution"] = AbstractGrid.prototype.removeRowExecution;
   
   Inheritance(AbstractGrid,AbstractWidget);
   return AbstractGrid;
