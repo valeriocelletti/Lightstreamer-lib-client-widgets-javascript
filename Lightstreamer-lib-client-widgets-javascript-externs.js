@@ -1,108 +1,110 @@
-   AbstractWidget.prototype["onItemUpdate"] = AbstractWidget.prototype.onItemUpdate;
-  AbstractWidget.prototype["onClearSnapshot"] = AbstractWidget.prototype.onClearSnapshot;
-  AbstractWidget.prototype["onSubscription"] = AbstractWidget.prototype.onSubscription;
-  AbstractWidget.prototype["onUnsubscription"] = AbstractWidget.prototype.onUnsubscription;
-  AbstractWidget.prototype["onListenStart"] = AbstractWidget.prototype.onListenStart;
-  AbstractWidget.prototype["onListenEnd"] = AbstractWidget.prototype.onListenEnd;
-  AbstractWidget.prototype["removeRow"] = AbstractWidget.prototype.removeRow;
-  AbstractWidget.prototype["updateRow"] = AbstractWidget.prototype.updateRow;
-  AbstractWidget.prototype["clean"] = AbstractWidget.prototype.clean;
-  AbstractWidget.prototype["getValue"] = AbstractWidget.prototype.getValue;
-  AbstractWidget.prototype["setAutoCleanBehavior"] = AbstractWidget.prototype.setAutoCleanBehavior;
-  AbstractWidget.prototype["parseHtml"] = AbstractWidget.prototype.parseHtml;
-  AbstractWidget.prototype["updateRowExecution"] = AbstractWidget.prototype.updateRowExecution;
-  AbstractWidget.prototype["removeRowExecution"] = AbstractWidget.prototype.removeRowExecution;
-  AbstractWidget.prototype["mergeUpdate"] = AbstractWidget.prototype.mergeUpdate;
-  
-  AbstractGrid.prototype["setHtmlInterpretationEnabled"] = AbstractGrid.prototype.setHtmlInterpretationEnabled;
-  AbstractGrid.prototype["isHtmlInterpretationEnabled"] = AbstractGrid.prototype.isHtmlInterpretationEnabled;
-  AbstractGrid.prototype["setNodeTypes"] = AbstractGrid.prototype.setNodeTypes;
-  AbstractGrid.prototype["getNodeTypes"] = AbstractGrid.prototype.getNodeTypes;
-  AbstractGrid.prototype["setAddOnTop"] = AbstractGrid.prototype.setAddOnTop;
-  AbstractGrid.prototype["isAddOnTop"] = AbstractGrid.prototype.isAddOnTop;
-  AbstractGrid.prototype["setSort"] = AbstractGrid.prototype.setSort;
-  AbstractGrid.prototype["getSortField"] = AbstractGrid.prototype.getSortField;
-  AbstractGrid.prototype["isDescendingSort"] = AbstractGrid.prototype.isDescendingSort;
-  AbstractGrid.prototype["isNumericSort"] = AbstractGrid.prototype.isNumericSort;
-  AbstractGrid.prototype["isCommaAsDecimalSeparator"] = AbstractGrid.prototype.isCommaAsDecimalSeparator;
-  AbstractGrid.prototype["extractFieldList"] = AbstractGrid.prototype.extractFieldList;
-  AbstractGrid.prototype["extractCommandSecondLevelFieldList"] = AbstractGrid.prototype.extractCommandSecondLevelFieldList;
-  AbstractGrid.prototype["parseHtml"] = AbstractGrid.prototype.parseHtml;
-  AbstractGrid.prototype["forceSubscriptionInterpretation"] = AbstractGrid.prototype.forceSubscriptionInterpretation;
-  AbstractGrid.prototype["updateRowExecution"] = AbstractGrid.prototype.updateRowExecution;
-  AbstractGrid.prototype["removeRowExecution"] = AbstractGrid.prototype.removeRowExecution;
-  
-  Chart.prototype["parseHtml"] = Chart.prototype.parseHtml;
-  Chart.prototype["configureArea"] = Chart.prototype.configureArea;
-  Chart.prototype["setXAxis"] = Chart.prototype.setXAxis;
-  Chart.prototype["addYAxis"] = Chart.prototype.addYAxis;
-  Chart.prototype["removeYAxis"] = Chart.prototype.removeYAxis;
-  Chart.prototype["positionXAxis"] = Chart.prototype.positionXAxis;
-  Chart.prototype["setXLabels"] = Chart.prototype.setXLabels;
-  Chart.prototype["addListener"] = Chart.prototype.addListener;
-  Chart.prototype["removeListener"] = Chart.prototype.removeListener;
-  Chart.prototype["getListeners"] = Chart.prototype.getListeners;
-  Chart.prototype["clean"] = Chart.prototype.clean;
-  Chart.prototype["onListenStart"] = Chart.prototype.onListenStart;
-  Chart.prototype["updateRowExecution"] = Chart.prototype.updateRowExecution;
-  Chart.prototype["removeRowExecution"] = Chart.prototype.removeRowExecution;
-  
-  
-  
-   //closure compiler exports
-  DynaGrid.prototype["setMaxDynaRows"] = DynaGrid.prototype.setMaxDynaRows;
-  DynaGrid.prototype["getMaxDynaRows"] = DynaGrid.prototype.getMaxDynaRows;
-  DynaGrid.prototype["goToPage"] = DynaGrid.prototype.goToPage;
-  DynaGrid.prototype["getCurrentPages"] = DynaGrid.prototype.getCurrentPages;
-  DynaGrid.prototype["setAutoScroll"] = DynaGrid.prototype.setAutoScroll;
-  DynaGrid.prototype["parseHtml"] = DynaGrid.prototype.parseHtml;
-  DynaGrid.prototype["clean"] = DynaGrid.prototype.clean;
-  DynaGrid.prototype["addListener"] = DynaGrid.prototype.addListener;
-  DynaGrid.prototype["removeListener"] = DynaGrid.prototype.removeListener;
-  DynaGrid.prototype["getListeners"] = DynaGrid.prototype.getListeners;
-  DynaGrid.prototype["updateRowExecution"] = DynaGrid.prototype.updateRowExecution;
-  DynaGrid.prototype["removeRowExecution"] = DynaGrid.prototype.removeRowExecution;
-  
-  
-   SimpleChartListener.prototype["onListenStart"] = SimpleChartListener.prototype.onListenStart;
-  SimpleChartListener.prototype["onYOverflow"] = SimpleChartListener.prototype.onYOverflow;
-  SimpleChartListener.prototype["onXOverflow"] = SimpleChartListener.prototype.onXOverflow;
-  SimpleChartListener.prototype["onNewLine"] = SimpleChartListener.prototype.onNewLine;
-  SimpleChartListener.prototype["onRemovedLine"] = SimpleChartListener.prototype.onRemovedLine;
-  
-  
-   StaticGrid.prototype["addCell"] = StaticGrid.prototype.addCell;
-  StaticGrid.prototype["setRootNode"] = StaticGrid.prototype.setRootNode;
-  StaticGrid.prototype["extractItemList"] = StaticGrid.prototype.extractItemList;
-  StaticGrid.prototype["parseHtml"] = StaticGrid.prototype.parseHtml;
-  StaticGrid.prototype["addListener"] = StaticGrid.prototype.addListener;
-  StaticGrid.prototype["removeListener"] = StaticGrid.prototype.removeListener;
-  StaticGrid.prototype["getListeners"] = StaticGrid.prototype.getListeners;
-  StaticGrid.prototype["updateRowExecution"] = StaticGrid.prototype.updateRowExecution;
-  StaticGrid.prototype["removeRowExecution"] = StaticGrid.prototype.removeRowExecution;
-  
-  StatusBarProgressIndicator.prototype["onStatusChange"] = StatusBarProgressIndicator.prototype.onStatusChange;
-  StatusBarProgressIndicator.prototype["onListenStart"] = StatusBarProgressIndicator.prototype.onListenStart;
-  StatusBarProgressIndicator.prototype["onListenEnd"] = StatusBarProgressIndicator.prototype.onListenEnd;
+AbstractWidget = function() {};
+AbstractWidget.prototype.onItemUpdate = function() {};
+AbstractWidget.prototype.onClearSnapshot = function() {};
+AbstractWidget.prototype.onSubscription = function() {};
+AbstractWidget.prototype.onUnsubscription = function() {};
+AbstractWidget.prototype.onListenStart = function() {};
+AbstractWidget.prototype.onListenEnd = function() {};
+AbstractWidget.prototype.removeRow = function() {};
+AbstractWidget.prototype.updateRow = function() {};
+AbstractWidget.prototype.clean = function() {};
+AbstractWidget.prototype.getValue = function() {};
+AbstractWidget.prototype.setAutoCleanBehavior = function() {};
+AbstractWidget.prototype.parseHtml = function() {};
+AbstractWidget.prototype.updateRowExecution = function() {};
+AbstractWidget.prototype.removeRowExecution = function() {};
+AbstractWidget.prototype.mergeUpdate = function() {};
 
-  
-  StatusImageWidget.prototype["onStatusChange"] = StatusImageWidget.prototype.onStatusChange;
+AbstractGrid = function() {};
+AbstractGrid.prototype.setHtmlInterpretationEnabled = function() {};
+AbstractGrid.prototype.isHtmlInterpretationEnabled = function() {};
+AbstractGrid.prototype.setNodeTypes = function() {};
+AbstractGrid.prototype.getNodeTypes = function() {};
+AbstractGrid.prototype.setAddOnTop = function() {};
+AbstractGrid.prototype.isAddOnTop = function() {};
+AbstractGrid.prototype.setSort = function() {};
+AbstractGrid.prototype.getSortField = function() {};
+AbstractGrid.prototype.isDescendingSort = function() {};
+AbstractGrid.prototype.isNumericSort = function() {};
+AbstractGrid.prototype.isCommaAsDecimalSeparator = function() {};
+AbstractGrid.prototype.extractFieldList = function() {};
+AbstractGrid.prototype.extractCommandSecondLevelFieldList = function() {};
+AbstractGrid.prototype.parseHtml = function() {};
+AbstractGrid.prototype.forceSubscriptionInterpretation = function() {};
+AbstractGrid.prototype.updateRowExecution = function() {};
+AbstractGrid.prototype.removeRowExecution = function() {};
 
-  StatusWidget.prototype["onStatusChange"] = StatusWidget.prototype.onStatusChange;
-  StatusWidget.prototype["onListenStart"] = StatusWidget.prototype.onListenStart;
-  StatusWidget.prototype["onListenEnd"] = StatusWidget.prototype.onListenEnd;
-  StatusWidget.prototype["getDomNode"] = StatusWidget.prototype.getDomNode;
+Chart = function() {};
+Chart.prototype.parseHtml = function() {};
+Chart.prototype.configureArea = function() {};
+Chart.prototype.setXAxis = function() {};
+Chart.prototype.addYAxis = function() {};
+Chart.prototype.removeYAxis = function() {};
+Chart.prototype.positionXAxis = function() {};
+Chart.prototype.setXLabels = function() {};
+Chart.prototype.addListener = function() {};
+Chart.prototype.removeListener = function() {};
+Chart.prototype.getListeners = function() {};
+Chart.prototype.clean = function() {};
+Chart.prototype.onListenStart = function() {};
+Chart.prototype.updateRowExecution = function() {};
+Chart.prototype.removeRowExecution = function() {};
 
-  
-  
-  VisualUpdate.prototype["getCellValue"] = VisualUpdate.prototype.getCellValue;
-  VisualUpdate.prototype["setCellValue"] = VisualUpdate.prototype.setCellValue;
-  VisualUpdate.prototype["getChangedFieldValue"] = VisualUpdate.prototype.getChangedFieldValue;
-  VisualUpdate.prototype["setHotTime"] = VisualUpdate.prototype.setHotTime;
-  VisualUpdate.prototype["setColdToHotTime"] = VisualUpdate.prototype.setColdToHotTime;
-  VisualUpdate.prototype["setHotToColdTime"] = VisualUpdate.prototype.setHotToColdTime;
-  VisualUpdate.prototype["setAttribute"] = VisualUpdate.prototype.setAttribute;
-  VisualUpdate.prototype["setStyle"] = VisualUpdate.prototype.setStyle;
-  VisualUpdate.prototype["setCellAttribute"] = VisualUpdate.prototype.setCellAttribute;
-  VisualUpdate.prototype["setCellStyle"] = VisualUpdate.prototype.setCellStyle;
-  VisualUpdate.prototype["forEachChangedField"] = VisualUpdate.prototype.forEachChangedField;
+DynaGrid = function() {};
+DynaGrid.prototype.setMaxDynaRows = function() {};
+DynaGrid.prototype.getMaxDynaRows = function() {};
+DynaGrid.prototype.goToPage = function() {};
+DynaGrid.prototype.getCurrentPages = function() {};
+DynaGrid.prototype.setAutoScroll = function() {};
+DynaGrid.prototype.parseHtml = function() {};
+DynaGrid.prototype.clean = function() {};
+DynaGrid.prototype.addListener = function() {};
+DynaGrid.prototype.removeListener = function() {};
+DynaGrid.prototype.getListeners = function() {};
+DynaGrid.prototype.updateRowExecution = function() {};
+DynaGrid.prototype.removeRowExecution = function() {};
+
+SimpleChartListener = function() {};
+SimpleChartListener.prototype.onListenStart = function() {};
+SimpleChartListener.prototype.onYOverflow = function() {};
+SimpleChartListener.prototype.onXOverflow = function() {};
+SimpleChartListener.prototype.onNewLine = function() {};
+SimpleChartListener.prototype.onRemovedLine = function() {};
+
+StaticGrid = function() {};
+StaticGrid.prototype.addCell = function() {};
+StaticGrid.prototype.setRootNode = function() {};
+StaticGrid.prototype.extractItemList = function() {};
+StaticGrid.prototype.parseHtml = function() {};
+StaticGrid.prototype.addListener = function() {};
+StaticGrid.prototype.removeListener = function() {};
+StaticGrid.prototype.getListeners = function() {};
+StaticGrid.prototype.updateRowExecution = function() {};
+StaticGrid.prototype.removeRowExecution = function() {};
+
+StatusBarProgressIndicator = function() {};
+StatusBarProgressIndicator.prototype.onStatusChange = function() {};
+StatusBarProgressIndicator.prototype.onListenStart = function() {};
+StatusBarProgressIndicator.prototype.onListenEnd = function() {};
+
+StatusImageWidget = function() {};
+StatusImageWidget.prototype.onStatusChange = function() {};
+
+StatusWidget = function() {};
+StatusWidget.prototype.onStatusChange = function() {};
+StatusWidget.prototype.onListenStart = function() {};
+StatusWidget.prototype.onListenEnd = function() {};
+StatusWidget.prototype.getDomNode = function() {};
+
+VisualUpdate = function() {};
+VisualUpdate.prototype.getCellValue = function() {};
+VisualUpdate.prototype.setCellValue = function() {};
+VisualUpdate.prototype.getChangedFieldValue = function() {};
+VisualUpdate.prototype.setHotTime = function() {};
+VisualUpdate.prototype.setColdToHotTime = function() {};
+VisualUpdate.prototype.setHotToColdTime = function() {};
+VisualUpdate.prototype.setAttribute = function() {};
+VisualUpdate.prototype.setStyle = function() {};
+VisualUpdate.prototype.setCellAttribute = function() {};
+VisualUpdate.prototype.setCellStyle = function() {};
+VisualUpdate.prototype.forEachChangedField = function() {};
