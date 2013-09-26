@@ -5,6 +5,8 @@ Subscription = function() {};
 Subscription.prototype.isSubscribed = function() {};
 Subscription.prototype.getKeyPosition = function() {};
 Subscription.prototype.getCommandPosition = function() {};
+Subscription.prototype.getMode = function() {};
+Subscription.prototype.getFields = function() {};
 
 ItemUpdate = function() {};
 ItemUpdate.prototype.forEachChangedField = function() {};
