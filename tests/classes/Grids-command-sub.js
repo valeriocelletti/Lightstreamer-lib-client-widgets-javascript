@@ -251,7 +251,7 @@ define([weswitClassPrefix+"DynaGrid",weswitClassPrefix+"StaticGrid","./HtmlTest"
     },
     
     sellEverything: function() {
-      this.deleteSent = 0
+      this.deleteSent = 0;
       for (var i in this.snapshotState) {
         this.client.sendMessage("SELL|"+portfolio+"|"+i+"|"+this.snapshotState[i]);
         this.deleteSent++;
