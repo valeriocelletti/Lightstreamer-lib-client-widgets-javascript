@@ -14,9 +14,9 @@
   limitations under the License.
 */
 define([weswitClassPrefix+"FadersHandler",weswitClassPrefix+"ColorConverter",weswitClassPrefix+"Cell",
-        "./HtmlTest","weswit/Inheritance","weswit/ASSERT","weswit/Executor"],
+        "./HtmlTest","weswit/Inheritance","weswit/ASSERT","weswit/Executor","Executor"],
     function(FadersHandler,ColorConverter,Cell,
-        HtmlTest,Inheritance,ASSERT,Executor) {
+        HtmlTest,Inheritance,ASSERT,WExecutor,Executor) {
    
   var testLogger = HtmlTest.testLogger;
   
@@ -48,6 +48,7 @@ define([weswitClassPrefix+"FadersHandler",weswitClassPrefix+"ColorConverter",wes
     },
     
     check: function(expectedBG,expectedText) {
+      testLogger.debug("Checking values");
       compare("foo"+this.id,"backgroundColor",expectedBG);
       compare("foo"+this.id,"color",expectedText);
       
@@ -71,7 +72,9 @@ define([weswitClassPrefix+"FadersHandler",weswitClassPrefix+"ColorConverter",wes
       } else if (this.id == 2) {
         this.write('<div id="foo2" style="background-color:lime">Lime on Black</div>');
         var c2 = new Cell(document.getElementById("foo2"));
-        var c2id = fh.getNewFaderId(c2, false, "black", "lime", 1000, Executor.packTask(this.check,this,[[0,0,0],[0,255,0]]));
+        
+        var task = Executor.packTask(this.check,this,[[0,0,0],[0,255,0]]);
+        var c2id = fh.getNewFaderId(c2, false, "black", "lime", 1000, task);
         fh.launchFader(c2id);
         
       } else if (this.id == 3) {
@@ -81,7 +84,7 @@ define([weswitClassPrefix+"FadersHandler",weswitClassPrefix+"ColorConverter",wes
         fh.launchFader(c3id);
         fh.stopFader(c3);
        
-        Executor.addTimedTask(this.check,1000,this,[[0,0,255],[0,0,0]]);
+        WExecutor.addTimedTask(this.check,1000,this,[[0,0,255],[0,0,0]]);
         
       } else if (this.id == 4) {
         this.write('<div id="foo4" style="background-color:black;color:blue">Blue on Black</div>');
@@ -90,7 +93,7 @@ define([weswitClassPrefix+"FadersHandler",weswitClassPrefix+"ColorConverter",wes
         fh.launchFader(c4id);
         
         var that = this;
-        Executor.addTimedTask(function() {
+        WExecutor.addTimedTask(function() {
           var expBG = "not read";
           var expFO = "not read";
           
@@ -105,7 +108,7 @@ define([weswitClassPrefix+"FadersHandler",weswitClassPrefix+"ColorConverter",wes
             return true;
           });
           
-          Executor.addTimedTask(that.check,700,that,[expBG,expFO]);
+          WExecutor.addTimedTask(that.check,700,that,[expBG,expFO]);
           
         },500);
       }
