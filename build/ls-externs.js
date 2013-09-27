@@ -1,5 +1,8 @@
 LightstreamerClient = function() {};
 LightstreamerClient.prototype.getStatus = function() {};
+LightstreamerClient.connectionDetails = {};
+LightstreamerClient.connectionDetails.getServerAddress = function() {};
+LightstreamerClient.connectionSharing.isMaster = function() {};
 
 Subscription = function() {};
 Subscription.prototype.isSubscribed = function() {};
