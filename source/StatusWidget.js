@@ -212,15 +212,15 @@ define(["Environment","IllegalArgumentException","Helpers","./LightstreamerConst
       height: "40px",
       backgroundColor: "#dddddd",
       opacity: "0.85",
-      filter: "alpha(opacity=85)",
-      boxShadow: "1px 1px 5px #999999"
+      filter: "alpha(opacity"+"=85)",
+      "boxShadow": "1px 1px 5px #999999"
     });
     
     if (attachToBorder == "no") {
       this.noToggle = true;
       applyStyles(this.widgetNode,{
         position: "absolute",
-        borderRadius: "8px"
+        "borderRadius": "8px"
       });
       
     } else {
@@ -232,21 +232,21 @@ define(["Environment","IllegalArgumentException","Helpers","./LightstreamerConst
         zIndex: "99999",
         
         "transition-duration": "1s",
-        MozTransitionDuration: "1s", 
+        "MozTransitionDuration": "1s", 
         "-webkit-transition-duration": "1s",
-        OTransitionDuration: "1s",
+        "OTransitionDuration": "1s",
         "-ms-transition-duration": "1s",
         
         "transition-timing-function": "ease",
-        MozTransitionTimingFunction: "ease",
+        "MozTransitionTimingFunction": "ease",
         "-webkit-transition-timing-function": "ease",
-        OTransitionTimingFunction: "ease",
+        "OTransitionTimingFunction": "ease",
         "-ms-transition-timing-function": "ease",
         
         "transition-property": attachToBorder,
-        MozTransitionProperty: attachToBorder,
+        "MozTransitionProperty": attachToBorder,
         "-webkit-transition-property": attachToBorder,
-        OTransitionProperty: attachToBorder,
+        "OTransitionProperty": attachToBorder,
         "-ms-transition-property": attachToBorder
       });
       
@@ -254,16 +254,16 @@ define(["Environment","IllegalArgumentException","Helpers","./LightstreamerConst
       if (attachToBorder == LEFT) {
         applyStyles(this.widgetNode,{
           left: LEFT_CLOSED,
-          borderTopRightRadius: "8px",
-          borderBottomRightRadius: "8px"
+          "borderTopRightRadius": "8px",
+          "borderBottomRightRadius": "8px"
         });
         
       } else {
         //if (attachToBorder == RIGHT)
         applyStyles(this.widgetNode,{
           right: RIGHT_CLOSED,
-          borderTopLeftRadius: "8px",
-          borderBottomLeftRadius: "8px"
+          "borderTopLeftRadius": "8px",
+          "borderBottomLeftRadius": "8px"
         });
 
       }
@@ -334,7 +334,7 @@ define(["Environment","IllegalArgumentException","Helpers","./LightstreamerConst
       width: "1px",
       height: "32px",
       backgroundColor: "#555555",
-      boxShadow: "1px 1px 3px white, -1px 1px 3px white, 1px -1px 3px white, -1px -1px 3px white"
+      "boxShadow": "1px 1px 3px white, -1px 1px 3px white, 1px -1px 3px white, -1px -1px 3px white"
     });    
     
     ////////secondSeparator
@@ -345,7 +345,7 @@ define(["Environment","IllegalArgumentException","Helpers","./LightstreamerConst
       top: "4px",
       width: "1px",
       backgroundColor: "#555555",
-      boxShadow: "1px 1px 3px white, -1px 1px 3px white, 1px -1px 3px white, -1px -1px 3px white"
+      "boxShadow": "1px 1px 3px white, -1px 1px 3px white, 1px -1px 3px white, -1px -1px 3px white"
     });
     
     ////////arrowContainer
