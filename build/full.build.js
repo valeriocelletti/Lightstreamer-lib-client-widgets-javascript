@@ -11,7 +11,8 @@
           "ls-externs.js",
           "utility-logging-externs.js",
           "utility-test-externs.js",
-          "utility-toolkit-externs.js"
+          "utility-toolkit-externs.js",
+          "node-externs.js"
         ],
         ignoreDefaultExterns: false,
         avoidGlobals: true
