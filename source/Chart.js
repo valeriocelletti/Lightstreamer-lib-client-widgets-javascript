@@ -74,6 +74,7 @@ define(["./AbstractWidget","./Cell","LoggerManager","Inheritance","Helpers","Env
    *
    * @param {String} id The HTML "id" attribute of a DOM Element to which the chart will be attached.
    * 
+   * @exports Chart
    * @class A widget displaying the data from its model as a multiline chart.
    * As with all the classes extending {@link AbstractWidget} the internal model
    * can be automatically updated by listening to one or more {@link Subscription}
@@ -938,6 +939,7 @@ define(["./AbstractWidget","./Cell","LoggerManager","Inheritance","Helpers","Env
    * This is a dummy constructor not to be used in any case.
    * @constructor
    * 
+   * @exports ChartListener
    * @class Interface to be implemented to listen to {@link Chart} events
    * comprehending notifications of chart overflow and new line creations.
    * <BR>Events for this listeners are executed synchronously with respect to the code

@@ -163,6 +163,7 @@ define(["Environment","IllegalArgumentException","Helpers","./LightstreamerConst
    * @throws {IllegalArgumentException} if an invalid value was passed as 
    * attachToBorder parameter.
    * 
+   * @exports StatusWidget
    * @class This class is a simple implementation of the {@link ClientListener}
    * interface that will display a small widget containing informations about 
    * the status of the connection.

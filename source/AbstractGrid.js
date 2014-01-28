@@ -44,6 +44,7 @@ define(["Inheritance","./CellMatrix","Executor","./Cell","Helpers",
    * This is an abstract class; no instances of this class should be created.
    * @constructor
    * 
+   * @exports AbstractGrid
    * @class The base class for the hierarchy of the *Grid classes.
    * Extends {@link AbstractWidget} to abstract a representation of the
    * internal tabular model as a visible grid made of HTML elements.
@@ -99,6 +100,7 @@ define(["Inheritance","./CellMatrix","Executor","./Cell","Helpers",
        * @protected
        * @param key
        * @param newValues
+       * @ignore
        */
       mergeUpdate: function(key,newValues) {
         if (gridsLogger.isDebugLogEnabled()) {
@@ -116,6 +118,7 @@ define(["Inheritance","./CellMatrix","Executor","./Cell","Helpers",
        * @protected
        * @param gridKey
        * @param updated
+       * @ignore
        */
       fillFormattedValues: function(gridKey,updated) {       
         for (var i in updated) {
@@ -132,6 +135,7 @@ define(["Inheritance","./CellMatrix","Executor","./Cell","Helpers",
       /**
        * Sort comparison method
        * @protected
+       * @ignore
        */
       isBefore: function(val1, val2) { 
         
@@ -501,6 +505,7 @@ define(["Inheritance","./CellMatrix","Executor","./Cell","Helpers",
       
       /**
        * @protected
+       * @ignore
        */
       makeSortValue: function(val) {
         if (this.numericSort) {
@@ -514,6 +519,7 @@ define(["Inheritance","./CellMatrix","Executor","./Cell","Helpers",
       
       /**
        * @protected
+       * @ignore
        */
       visualUpdateExecution: function(key,vUpdateInfo,updateKey) {
         
@@ -644,21 +650,25 @@ define(["Inheritance","./CellMatrix","Executor","./Cell","Helpers",
       /** 
        * abstract method
        * @protected
+       * @ignore
        */ 
       updateRowExecution: function(key,serverValues) {},
       /** 
        * abstract method
        * @protected
+       * @ignore
        */ 
       removeRowExecution: function(key) {},
       /** 
        * abstract method
        * @protected
+       * @ignore
        */ 
       sortTable: function() {},   
       /** 
        * abstract method
        * @protected
+       * @ignore
        */ 
       computeFieldSymbolsSet: function(type){}
       

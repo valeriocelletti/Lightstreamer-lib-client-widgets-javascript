@@ -35,6 +35,7 @@ define(["Inheritance","Matrix","LoggerManager","Setter","EventDispatcher",
    * This is an abstract class; no instances of this class should be created.
    * @constructor
    * 
+   * @exports AbstractWidget
    * @class The base class for the hierarchy of the provided widgets. It is an
    * abstract class representing a view on a set of tabular data, which is supposed
    * to be some sort of HTML visualization widget. Each row in the tabular model is associated with a key.
@@ -130,10 +131,12 @@ define(["Inheritance","Matrix","LoggerManager","Setter","EventDispatcher",
   
   /**
    * @protected
+   * @ignore
    */
   AbstractWidget.ITEM_IS_KEY = ITEM_IS_KEY;
   /**
    * @protected
+   * @ignore
    */
   AbstractWidget.UPDATE_IS_KEY = UPDATE_IS_KEY;
   
@@ -146,6 +149,7 @@ define(["Inheritance","Matrix","LoggerManager","Setter","EventDispatcher",
       },
       /**
        * @protected
+       * @ignore
        */
       checkParsed: function() {
         if (!this.parsed) {
@@ -289,6 +293,7 @@ define(["Inheritance","Matrix","LoggerManager","Setter","EventDispatcher",
       
       /**
        * @protected
+       * @ignore
        */
       chooseInterpretation: function() {
         if (!this.masterSubscription) {
@@ -339,6 +344,7 @@ define(["Inheritance","Matrix","LoggerManager","Setter","EventDispatcher",
       
       /**
        * @protected
+       * @ignore
        */
       itemIsKey: function() {
         return this.kind == ITEM_IS_KEY;
@@ -346,6 +352,7 @@ define(["Inheritance","Matrix","LoggerManager","Setter","EventDispatcher",
       
       /**
        * @protected
+       * @ignore
        */
       updateIsKey: function() {
         return this.kind == UPDATE_IS_KEY;
@@ -353,6 +360,7 @@ define(["Inheritance","Matrix","LoggerManager","Setter","EventDispatcher",
       
       /**
        * @protected
+       * @ignore
        */
       keyIsKey: function() {
         return this.kind == KEY_IS_KEY;
@@ -360,6 +368,7 @@ define(["Inheritance","Matrix","LoggerManager","Setter","EventDispatcher",
 
       /**
        * @protected
+       * @ignore
        */
       getOldestKey: function() {
         if (this.fifoHead >= this.fifoKeys.length) {
@@ -370,6 +379,7 @@ define(["Inheritance","Matrix","LoggerManager","Setter","EventDispatcher",
       
       /**
        * @protected
+       * @ignore
        */
       removeFromFifo: function(key) {
         var pos = this.fifoMap[key];
@@ -474,6 +484,7 @@ define(["Inheritance","Matrix","LoggerManager","Setter","EventDispatcher",
       
       /**
        * @protected
+       * @ignore
        */
       updateLater: function(key,newValues) {
         if (gridsLogger.isDebugLogEnabled()) {
@@ -485,6 +496,7 @@ define(["Inheritance","Matrix","LoggerManager","Setter","EventDispatcher",
       
       /**
        * @protected
+       * @ignore
        */
       deleteLater: function(key) {
         if (gridsLogger.isDebugLogEnabled()) {
@@ -680,16 +692,19 @@ define(["Inheritance","Matrix","LoggerManager","Setter","EventDispatcher",
       /** 
        * abstract method
        * @protected
+       * @ignore
        */ 
       updateRowExecution: function(key,serverValues) {},
       /** 
        * abstract method
        * @protected
+       * @ignore
        */ 
       removeRowExecution: function(key) {},
       /** 
        * abstract method
        * @protected
+       * @ignore
        */ 
       mergeUpdate: function(key,newValues) {}
   };

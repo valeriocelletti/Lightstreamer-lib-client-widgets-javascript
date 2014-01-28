@@ -33,6 +33,7 @@ define(["List"],function(List) {
    * greater than the first Y position and as initial minimum position a value that
    * is yPerc% smaller than it. If not specified, then 20 (meaning 20%) will be used. 
    * 
+   * @exports SimpleChartListener
    * @class Simple implementation of the {@link ChartListener} interface that can
    * be used to automatically adjust the axis of a {@link Chart} to center the lines on 
    * the Chart.

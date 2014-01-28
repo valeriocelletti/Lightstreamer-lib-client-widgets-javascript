@@ -36,14 +36,14 @@ define(["./ColorConverter","Executor","Helpers","./Cell","Environment"],
   FadersHandler.prototype = {
     
     /**
-     * 
+     * @private
      * @param {Cell} cell
      * @param goingDown
      * @param endBack
      * @param endFore
      * @param millis
      * @param endCommand
-     * @returns
+     * @returns {String} id
      */
     /*public*/ getNewFaderId: function(cell, goingDown, endBack, endFore, millis, endCommand) {
       var steps = this.getHowManySteps(millis);

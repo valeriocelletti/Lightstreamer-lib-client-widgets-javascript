@@ -57,6 +57,7 @@ define(["Inheritance","./AbstractGrid","./Cell","./VisibleParent","./InvisiblePa
    * to false if, at the time of the DynaGrid instance creation, the HTML element
    * designated as template is not yet ready on the page.
    * 
+   * @exports DynaGrid
    * @class An {@link AbstractGrid} implementation that can be used to display
    * the values from the internal model in a dynamically created grid.   
    * The HTML structure suitable for the visualization of the tabular model values is 
@@ -329,6 +330,7 @@ define(["Inheritance","./AbstractGrid","./Cell","./VisibleParent","./InvisiblePa
     
     /**
      * @protected
+     * @ignore
      */
     parseHtml: function() {
       this.parsed = true;
@@ -393,6 +395,7 @@ define(["Inheritance","./AbstractGrid","./Cell","./VisibleParent","./InvisiblePa
     
     /**
      * @protected
+     * @ignore
      */
     computeFieldSymbolsSet: function(type) {
       var template = this.clonedNode;
@@ -575,6 +578,7 @@ define(["Inheritance","./AbstractGrid","./Cell","./VisibleParent","./InvisiblePa
     
     /**
      * @protected
+     * @ignore
      */
     sortTable: function() {
       var mySortCode = this.sortField;
@@ -671,6 +675,7 @@ define(["Inheritance","./AbstractGrid","./Cell","./VisibleParent","./InvisiblePa
     
     /**
      * @protected
+     * @ignore
      */
     changePage: function(toPage) {
       if(this.rowCount <= 0) {
@@ -691,6 +696,7 @@ define(["Inheritance","./AbstractGrid","./Cell","./VisibleParent","./InvisiblePa
     
     /**
      * @protected
+     * @ignore
      */
     calculatePages: function() {
       if (gridsLogger.isDebugLogEnabled()) {
@@ -716,6 +722,7 @@ define(["Inheritance","./AbstractGrid","./Cell","./VisibleParent","./InvisiblePa
   
     /**
      * @protected
+     * @ignore
      */
     removeRowExecution: function(key) {
       var toRemove = this.clonesArray[key];
@@ -764,6 +771,7 @@ define(["Inheritance","./AbstractGrid","./Cell","./VisibleParent","./InvisiblePa
     
     /**
      * @protected
+     * @ignore
      */
     updateRowExecution: function(key,serverValues) { 
       var calculatePagesFlag = false;   
@@ -900,6 +908,7 @@ define(["Inheritance","./AbstractGrid","./Cell","./VisibleParent","./InvisiblePa
 
     /**
      * @protected
+     * @ignore
      */
     getNodeByIndex: function(i) {
       
@@ -923,6 +932,7 @@ define(["Inheritance","./AbstractGrid","./Cell","./VisibleParent","./InvisiblePa
     
     /**
      * @protected
+     * @ignore
      */
     appendNode: function(toUpdate,onBottom) {
       
@@ -949,6 +959,7 @@ define(["Inheritance","./AbstractGrid","./Cell","./VisibleParent","./InvisiblePa
     
     /**
      * @protected
+     * @ignore
      */
     insertNodeAtIndex: function(i, node) { 
       if (i > this.rowCount + 1 || i <= 0) {
@@ -1109,6 +1120,7 @@ define(["Inheritance","./AbstractGrid","./Cell","./VisibleParent","./InvisiblePa
    * This is a dummy constructor not to be used in any case.
    * @constructor
    * 
+   * @exports DynaGridListener
    * @class Interface to be implemented to listen to {@link DynaGrid} events
    * comprehending notifications of changes in the shown values and, in case
    * pagination is active, changes in the number of total logical pages.

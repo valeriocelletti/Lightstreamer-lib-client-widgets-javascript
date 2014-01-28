@@ -66,6 +66,7 @@ define(["Inheritance","./AbstractGrid","./VisualUpdate","./Cell","./SlidingCell"
    * method will avoid searching cells in the DOM of the page. Equivalent to multiple
    * {@link #addCell} calls, but also useful if autoParse is true.
    * 
+   * @exports StaticGrid
    * @class An {@link AbstractGrid} implementation that can be used to display
    * the values from the internal model in a statically prepared grid.   
    * The HTML structure suitable for the visualization of the tabular model values  
@@ -355,6 +356,7 @@ define(["Inheritance","./AbstractGrid","./VisualUpdate","./Cell","./SlidingCell"
       
       /**
        * @protected
+       * @ignore
        */
       computeFieldSymbolsSet: function(type) {
         var fieldSymbolsSet = {};
@@ -368,6 +370,7 @@ define(["Inheritance","./AbstractGrid","./VisualUpdate","./Cell","./SlidingCell"
       
       /**
        * @protected
+       * @ignore
        */
       computeItemSymbolsSet: function() {
         var cells = this.grid.getEntireMatrix();
@@ -382,6 +385,7 @@ define(["Inheritance","./AbstractGrid","./VisualUpdate","./Cell","./SlidingCell"
 /////////////////////////////////////VISUAL EXECUTION      
       /**
        * @protected
+       * @ignore
        */
       updateRowExecution: function(key,serverValues) {
    
@@ -515,6 +519,7 @@ define(["Inheritance","./AbstractGrid","./VisualUpdate","./Cell","./SlidingCell"
       
       /**
        * @protected
+       * @ignore
        */
       getSlidingCell: function(cell,updateKey,col,num,noNumIndex) {
         if(this.usingItems) {
@@ -526,6 +531,7 @@ define(["Inheritance","./AbstractGrid","./VisualUpdate","./Cell","./SlidingCell"
       
       /**
        * @protected
+       * @ignore
        */
       getCellByKey: function(key,col,num) {
         var gridKey = this.keyRowMap.get(key);
@@ -535,6 +541,7 @@ define(["Inheritance","./AbstractGrid","./VisualUpdate","./Cell","./SlidingCell"
       
       /**
        * @protected
+       * @ignore
        */
       removeRowExecution: function(key) {
         var gridKey = this.usingItems ? key : this.keyRowMap.get(key);
@@ -768,6 +775,7 @@ define(["Inheritance","./AbstractGrid","./VisualUpdate","./Cell","./SlidingCell"
       
       /**
        * @protected
+       * @ignore
        */
       sortTable: function() {
         if (this.usingItems) {
@@ -872,6 +880,7 @@ define(["Inheritance","./AbstractGrid","./VisualUpdate","./Cell","./SlidingCell"
    * This is a dummy constructor not to be used in any case.
    * @constructor 
    * 
+   * @exports StaticGridListener
    * @class Interface to be implemented to listen to {@link StaticGrid} events.
    * <BR>Events for this listeners are executed synchronously with respect to the code
    * that generates them.
