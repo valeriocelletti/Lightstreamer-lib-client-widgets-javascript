@@ -453,13 +453,16 @@ define(["Inheritance","./CellMatrix","Executor","./Cell","Helpers",
       /**
        * Operation method that is used to force the choice of what to use
        * as key for the integration in the internal model, when receiving
-       * an update from a Subscription this grid is listening to.
+       * an update from a Subscription this grid is listening to. 
        * <BR>Specifying "ITEM_IS_KEY" tells the widget to use the item as key;
        * this is the behavior that is already the default one when the Subscription
        * is in "MERGE" or "RAW" mode (see {@link AbstractWidget} for details).
        * <BR>Specifying "UPDATE_IS_KEY" tells the widget to use a progressive number
        * as key; this is the behavior that is already the default one when the
        * Subscription is in "DISTINCT" mode (see {@link AbstractWidget} for details).
+       * <BR>Note that when listening to different Subscriptions the default behavior 
+       * is set when the grid is added as listener for the first one and then applied 
+       * to all the others regardless of their mode. 
        * 
        * <p class="lifecycle"><b>Lifecycle:</b>this method can only be called
        * while the internal model is empty.</p>
