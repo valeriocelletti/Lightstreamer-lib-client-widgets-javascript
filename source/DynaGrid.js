@@ -125,8 +125,7 @@ define(["Inheritance","./AbstractGrid","./Cell","./VisibleParent","./InvisiblePa
     
     this.autoScrollElement = null;
     this.autoScrollType = OFF;
-    this.lastScrollPos = 0;
-    this.stopFirstScroll = false;
+    
 
     this.initDOM();
     
@@ -276,11 +275,12 @@ define(["Inheritance","./AbstractGrid","./Cell","./VisibleParent","./InvisiblePa
      * to show the row involved. This feature, however, should be used only
      * if the update rate is low or if this grid is listening to a DISTINCT 
      * Subscription; otherwise, the automatic scrolling activity may be excessive.
-     * <BR>Note that in case the grid is listening to a DISTINCT subscription and
+     * <BR>Note that in case the grid is configured in UPDATE_IS_KEY mode (that is
+     * the default mode used when the grid is listening to a DISTINCT subscription) and
      * the scrollbar is moved from its automatic position, then the auto-scroll
      * is disabled until the scrollbar is repositioned to its former 
      * position. This automatic interruption of the auto scrolling is not supported
-     * on Opera browsers.
+     * on pre-webkit Opera browsers.
      * <BR>The auto-scroll is performed only if single page mode is currently
      * used (i.e. the maximum number of visible rows is set to unlimited).
      *
@@ -299,6 +299,7 @@ define(["Inheritance","./AbstractGrid","./Cell","./VisibleParent","./InvisiblePa
      * should auto-scroll, if the type argument is "ELEMENT"; not used,
      * otherwise.
      * @see #setMaxDynaRows
+     * @see AbstractGrid#forceSubscriptionInterpretation
      * 
      */
     setAutoScroll: function(type, elementId) {
@@ -500,9 +501,6 @@ define(["Inheritance","./AbstractGrid","./Cell","./VisibleParent","./InvisiblePa
      */
     clean: function() {
       this._callSuperMethod(DynaGrid,"clean");
-      
-      this.stopFirstScroll = false;
-      this.lastScrollPos = 0; 
     },
     
     /**
@@ -512,67 +510,59 @@ define(["Inheritance","./AbstractGrid","./Cell","./VisibleParent","./InvisiblePa
       if (this.autoScrollType == OFF) {
         return false;
       }
-      if (BrowserDetection.isProbablyOldOpera()) {
-        //Opera handling of clientHeight, scrollTop and scrollHeight
-        //is a little bit different:
-        //When the scrollbar is on the bottom clientHeight + scrollTop is
-        //equal to scrollHeight on other browsers while on opera it might
-        //be a little bigger. 
+      
+      if (!this.updateIsKey()) {
+        //always scroll
         return true;
-      }
         
-      var scrollEl = this.autoScrollType == ELEMENT ? this.autoScrollElement : document.body; 
-   
-      if (scrollEl.scrollTop < this.lastScrollPos) {
-        this.stopFirstScroll = true;
+      } else {
+        var scrollEl = this.autoScrollType == ELEMENT ? this.autoScrollElement : document.body;
+        
+        if (this.addOnTop) {
+          return scrollEl.scrollTop == 0;
+        }
+        
+        //we only scroll if the scrollbar is on the downmost position --> (scrollEl.clientHeight + scrollEl.scrollTop) == scrollEl.scrollHeight
+      
+        if (BrowserDetection.isProbablyOldOpera()) {
+          //Opera handling of clientHeight, scrollTop and scrollHeight
+          //is a little bit different:
+          //When the scrollbar is on the bottom clientHeight + scrollTop is
+          //equal to scrollHeight on other browsers while on opera it might
+          //be a little bigger. 
+          return true;
+        }
+          
+     
+        return Math.abs(scrollEl.clientHeight + scrollEl.scrollTop - scrollEl.scrollHeight) <= 1; //rogue pixel
       }
-      this.lastScrollPos = scrollEl.scrollTop;
-      if (!this.stopFirstScroll) {
-        return true;
-      }
-   
-      return !((scrollEl.clientHeight + scrollEl.scrollTop) != scrollEl.scrollHeight);
     },
     
     /**
-     * moves the scrollbar
+     * @private
      */
-    doAutoScroll: function(el) {
-      if (this.autoScrollType == OFF) {
-        return;
-      }
-      
-      var stop = this.autoScrollType == ELEMENT ? this.autoScrollElement : null;
-      
-      //move the scrollbar on the top border of the element
-      var goDown=el.offsetTop;
-      
-      //sum the offsets of the hierarchy up to document (or an absolute element)
-      var pEl = el.parentNode;
-      el = el.offsetParent;
-      
-      var tmp = null;
-      while ((pEl != stop) && (pEl != null)) { 
-        if (pEl == el) {
-          if (tmp != null) {
-            goDown += tmp;
-          }
-          
-          tmp = el.offsetTop;
-          el = el.offsetParent;
-        } 
+    getNewScrollPosition: function(el) {
+      var scrollEl = this.autoScrollType == PAGE ? document.body : this.autoScrollElement;
+      if (this.updateIsKey()) {
+        return this.addOnTop ? 0 : scrollEl.scrollHeight-scrollEl.clientHeight;
         
-        pEl = pEl.parentNode;
-      }
-      
-      if (gridsLogger.isDebugLogEnabled()) {
-        gridsLogger.logDebug("Perform auto-scroll",this);
-      }
-      
-      if (this.autoScrollType == PAGE) {      
-        window.scrollTo(0,goDown);
       } else {
-        this.autoScrollElement.scrollTop = goDown;
+      
+        return el.offsetTop - scrollEl.offsetTop;
+      }
+    },
+    
+    /**
+     * @private 
+     */
+    doAutoScroll: function(scrollTo) {
+      if (gridsLogger.isDebugLogEnabled()) {
+        gridsLogger.logDebug("Perform auto-scroll",this,scrollTo);
+      }
+      if (this.autoScrollType == PAGE) {      
+        window.scrollTo(0,scrollTo);
+      } else {
+        this.autoScrollElement.scrollTop = scrollTo;
       }
     },
     
@@ -829,9 +819,10 @@ define(["Inheritance","./AbstractGrid","./Cell","./VisibleParent","./InvisiblePa
       if (isNew && this.updateIsKey()) {
         this.limitRows();
       }
-      
+
       if (performScroll && toUpdate.isSonOf(this.clonedContainer)) {
-        this.doAutoScroll(toUpdate.element());
+        var newScrollPos = this.getNewScrollPosition(toUpdate.element());
+        this.doAutoScroll(newScrollPos);
       }
       
       if (calculatePagesFlag) {

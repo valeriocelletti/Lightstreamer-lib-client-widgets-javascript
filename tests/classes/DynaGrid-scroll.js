@@ -18,12 +18,42 @@ define([weswitClassPrefix+"DynaGrid","./HtmlTest","weswit/Inheritance","weswit/A
    
   var testLogger = HtmlTest.testLogger;
   
-  var DynaGridTest = function() {
+  var UPDATES = [{first:1,second:"a",third:"-"}, 
+                 {first:2,second:"f",third:"-"}, //(if sorted) when added is second but the scrollbar can't go down enough
+                 {first:3,second:"e",third:"-"}, //(if sorted) when added is second
+                 {first:4,second:"c",third:"-"}, //(if sorted) when added is second
+                 {first:5,second:"d",third:"-"},
+                 {first:6,second:"b",third:"-"}  //(if sorted) when added is second
+                 ];
+  
+  
+  
+  var DynaGridTest = function(updateIsKey,onTop,moveIt) {
     this._callSuperConstructor(DynaGridTest);
+    
+    this.updateIsKey = updateIsKey;
+    this.onTop = onTop; //does not matter if !updateIsKey
+    this.moveIt = moveIt; //after placing the update with this index we move the scrollbar
   };
   
+  var ON_TOP = true;
+  var ON_BOTTOM = false;
+  var ON_ORDER = null;
+  var DONT_MOVE = null;
+  var UPDATE_IS_KEY = true;
+  var KEY_IS_KEY = false;
+  
+  
   DynaGridTest.getInstances = function() {
-    return [new DynaGridTest()];
+
+    return [new DynaGridTest(UPDATE_IS_KEY,ON_BOTTOM,DONT_MOVE),
+            new DynaGridTest(UPDATE_IS_KEY,ON_BOTTOM,4),
+            
+            new DynaGridTest(UPDATE_IS_KEY,ON_TOP,DONT_MOVE),
+            new DynaGridTest(UPDATE_IS_KEY,ON_TOP,4),
+            
+            new DynaGridTest(KEY_IS_KEY,ON_ORDER,DONT_MOVE),
+            new DynaGridTest(KEY_IS_KEY,ON_ORDER,4)];
   };
   
   DynaGridTest.prototype = {
@@ -34,16 +64,18 @@ define([weswitClassPrefix+"DynaGrid","./HtmlTest","weswit/Inheritance","weswit/A
     start:function() {
       this._callSuperMethod(DynaGridTest,"start");
       this.write(
-          '<div id="foo1container">' +
-            '<div data-source="lightstreamer" id="foo1">' +
-              '<div data-source="lightstreamer" data-field="first"></div>' +
-              '<div data-source="lightstreamer" data-field="second"></div>' +
-              '<div data-source="lightstreamer" data-field="third"></div>' +
+          '<div id="foo1container" style="overflow:auto;height:144px;padding:20px;border:20px;margin:20px">' +
+            '<div style="padding:20px;border:20px;margin:20px">' +
+              '<div data-source="lightstreamer" id="foo1" style="padding:2px;border:20px;margin:20px">' +
+                '<div data-source="lightstreamer" data-field="first"></div>' +
+                '<div data-source="lightstreamer" data-field="second"></div>' +
+                '<div data-source="lightstreamer" data-field="third"></div>' +
+              '</div>' +
             '</div>' +
          '</div>'
       );
       
-      
+      //first let's test that the setter works
       var grid = new DynaGrid("foo1");
       ASSERT.verifySuccess(grid,"parseHtml",ASSERT.VOID,ASSERT.VOID);
       var src = grid.autoScrollType;
@@ -75,6 +107,60 @@ define([weswitClassPrefix+"DynaGrid","./HtmlTest","weswit/Inheritance","weswit/A
       }
       
       
+      //then let's scroll
+      ASSERT.verifySuccess(grid,"setAutoScroll",["ELEMENT","foo1container"],ASSERT.VOID);
+      if (this.updateIsKey) {
+        ASSERT.verifySuccess(grid,"forceSubscriptionInterpretation",["UPDATE_IS_KEY"],ASSERT.VOID);
+        ASSERT.verifySuccess(grid,"setAddOnTop",[this.onTop],ASSERT.VOID);
+        
+      } else {
+        ASSERT.verifySuccess(grid,"setSort",["second", false, false, false],ASSERT.VOID);
+        
+      }
+      
+      
+      var el = document.getElementById("foo1container");
+      
+      for (var i=0; i<UPDATES.length; i++) {
+        var k = i+1;
+        testLogger.debug("Testing movement " +k);
+        ASSERT.verifySuccess(grid,"updateRow",[k,UPDATES[i]],ASSERT.VOID);
+        
+        if (i == this.moveIt) {
+          var moveTo = this.onTop ? el.scrollHeight : 0;
+          
+          testLogger.debug("Manually move scrollbar to " +moveTo);
+          el.scrollTop = moveTo;
+          this.movedTo = el.scrollTop;
+        }
+        
+        var expectedPosition = null;
+        
+        if (this.updateIsKey) {
+          if (this.moveIt !== null && i >= this.moveIt) {
+            expectedPosition = this.movedTo;
+          } else if (this.onTop) {
+            expectedPosition = 0;
+          } else {
+            expectedPosition = el.scrollHeight-el.clientHeight;
+          }
+          
+        } else {
+          if (i === this.moveIt) {
+            expectedPosition = this.movedTo;
+          } else {
+            expectedPosition = el.scrollTop; //calculate this here?
+          }
+        }
+        
+        
+        testLogger.debug("Verifiyng position " + el.scrollTop + " expecting " + expectedPosition);
+        ASSERT.verifyValue(el.scrollTop,expectedPosition,function(v1,v2) {
+          return Math.abs(v1-v2) <= 1;
+        });
+        
+      }
+
       this.end();
     }
   };
