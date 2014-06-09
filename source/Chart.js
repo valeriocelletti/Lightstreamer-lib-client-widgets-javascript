@@ -700,7 +700,7 @@ define(["./AbstractWidget","./Cell","LoggerManager","Inheritance","Helpers","Env
        * in the array. On the other hand, if an array of fields is passed but only one 
        * parser has been specified, then the parser will be applied to all of the fields.
        * 
-       * @see #removeYAxis
+       * @see Chart#removeYAxis
        */
       addYAxis: function(field, yParser) {
         if (Helpers.isArray(field)) {
@@ -759,7 +759,7 @@ define(["./AbstractWidget","./Cell","LoggerManager","Inheritance","Helpers","Env
        * in the array. On the other hand, if an array of fields is passed but only one 
        * parser has been specified, then the parser will be applied to all of the fields.
        * 
-       * @see #removeYAxis
+       * @see Chart#removeYAxis
        */
       removeYAxis: function(field) {
         if (Helpers.isArray(field)) {

@@ -201,7 +201,7 @@ define(["Inheritance","./AbstractGrid","./Cell","./VisibleParent","./InvisiblePa
      * "unlimited", to notify that the grid is allowed to grow
      * without limits.
      * 
-     * @see #setMaxDynaRows
+     * @see DynaGrid#setMaxDynaRows
      */ 
     getMaxDynaRows: function() {
       if (this.maxRow == 0) {
@@ -232,8 +232,8 @@ define(["Inheritance","./AbstractGrid","./Cell","./VisibleParent","./InvisiblePa
      * logical page, that may become nonempty as soon as enough rows are added
      * to the internal model.
      *
-     * @see #setMaxDynaRows
-     * @see #getCurrentPages
+     * @see DynaGrid#setMaxDynaRows
+     * @see DynaGrid#getCurrentPages
      */
     goToPage: function(pageNumber) {
       if (this.updateIsKey()) {
@@ -298,7 +298,7 @@ define(["Inheritance","./AbstractGrid","./Cell","./VisibleParent","./InvisiblePa
      * @param {String} elementId The HTML "id" attribute of the HTML element whose scrollbar
      * should auto-scroll, if the type argument is "ELEMENT"; not used,
      * otherwise.
-     * @see #setMaxDynaRows
+     * @see DynaGrid#setMaxDynaRows
      * @see AbstractGrid#forceSubscriptionInterpretation
      * 
      */

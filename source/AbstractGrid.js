@@ -200,7 +200,7 @@ define(["Inheritance","./CellMatrix","Executor","./Cell","Helpers",
        * @return {boolean} true if pushed values are interpreted as HTML code, false
        * otherwise.
        *
-       * @see #setHtmlInterpretationEnabled
+       * @see AbstractGrid#setHtmlInterpretationEnabled
        */
       isHtmlInterpretationEnabled: function() {
         return this.useInner;
@@ -221,7 +221,7 @@ define(["Inheritance","./CellMatrix","Executor","./Cell","Helpers",
        * types to be searched for. If the array contains an asterisk (*) then all the 
        * node types will be checked.
        * 
-       * @see #parseHtml
+       * @see AbstractGrid#parseHtml
        */
       setNodeTypes: function(nodeTypes) {
         if (nodeTypes && nodeTypes.length > 0) {
@@ -237,7 +237,7 @@ define(["Inheritance","./CellMatrix","Executor","./Cell","Helpers",
        *
        * @return {Array} a list of node type names.
        *
-       * @see #setNodeTypes
+       * @see AbstractGrid#setNodeTypes
        */
       getNodeTypes: function() {
         return this.tagsToCheck;
@@ -280,7 +280,7 @@ define(["Inheritance","./CellMatrix","Executor","./Cell","Helpers",
        *
        * @return {boolean} true if new rows are added on top, false otherwise.
        *
-       * @see #setAddOnTop
+       * @see AbstractGrid#setAddOnTop
        */
       isAddOnTop: function() {
         return this.addOnTop;
@@ -345,7 +345,7 @@ define(["Inheritance","./CellMatrix","Executor","./Cell","Helpers",
        * @return {Number} The name of a field, or null if sorting is not currently
        * enabled.
        *
-       * @see #setSort
+       * @see AbstractGrid#setSort
        */    
       getSortField: function() {
         return this.sortField;
@@ -357,7 +357,7 @@ define(["Inheritance","./CellMatrix","Executor","./Cell","Helpers",
        * @return {boolean} true if descending sort is being performed, false if ascending
        * sort is, or null if sorting is not currently enabled.
        *
-       * @see #setSort
+       * @see AbstractGrid#setSort
        */    
       isDescendingSort: function() {
         return this.sortField === null ? null : this.descendingSort;
@@ -369,7 +369,7 @@ define(["Inheritance","./CellMatrix","Executor","./Cell","Helpers",
        * @return {boolean} true if numeric sort is being performed, false if alphabetical
        * sort is, or null if sorting is not currently enabled.
        *
-       * @see #setSort
+       * @see AbstractGrid#setSort
        */     
       isNumericSort: function() {
         return this.sortField === null ? null : this.numericSort;
@@ -383,7 +383,7 @@ define(["Inheritance","./CellMatrix","Executor","./Cell","Helpers",
        * returns null if sorting is not currently enabled or numeric sorting
        * is not currently configured.
        *
-       * @see #setSort
+       * @see AbstractGrid#setSort
        */    
       isCommaAsDecimalSeparator: function() {
         return this.sortField === null  || !this.numericSort ? null : this.commaAsDecimalSeparator;
@@ -425,7 +425,7 @@ define(["Inheritance","./CellMatrix","Executor","./Cell","Helpers",
        * @return {Array} The list of unique values found in the "data-field" properties
        * of HTML element of this grid.
        *
-       * @see #extractFieldList
+       * @see AbstractGrid#extractFieldList
        * @see Subscription#setCommandSecondLevelFields
        */
       extractCommandSecondLevelFieldList: function() {

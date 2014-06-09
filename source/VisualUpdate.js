@@ -107,8 +107,8 @@ define(["LoggerManager","Inheritance","Setter","IllegalArgumentException"],
      * @return {String} A text or null; if the value for the specified field has never been
      * assigned in the model, the method also returns null.
      *
-     * @see #setCellValue
-     * @see #getChangedFieldValue
+     * @see VisualUpdate#setCellValue
+     * @see VisualUpdate#getChangedFieldValue
      */
     getCellValue: function(field,replicaId) { 
       var cell = this.cellsGrid.getCell(this.key,field,replicaId);
@@ -374,7 +374,7 @@ define(["LoggerManager","Inheritance","Setter","IllegalArgumentException"],
      * If more cells were defined but this parameter is not specified, then a random
      * cell will be selected.
      * 
-     * @see #setAttribute
+     * @see VisualUpdate#setAttribute
      */
     setCellAttribute: function(field, hotValue, coldValue, attrName, replicaId) {
       this.addStyle(field, hotValue, coldValue, attrName, replicaId);      
@@ -406,7 +406,7 @@ define(["LoggerManager","Inheritance","Setter","IllegalArgumentException"],
      * If more cells were defined but this parameter is not specified, then a random
      * cell will be selected.
      * 
-     * @see #setStyle
+     * @see VisualUpdate#setStyle
      */
     setCellStyle: function(field, hotStyle, coldStyle, replicaId) { 
       this.addStyle(field, hotStyle, coldStyle, "CLASS", replicaId);
@@ -425,7 +425,7 @@ define(["LoggerManager","Inheritance","Setter","IllegalArgumentException"],
      * @param {ChangedFieldCallback} iterator Function instance that will be called once per 
      * each field changed on the current update on the internal model.
      * 
-     * @see #getChangedFieldValue
+     * @see VisualUpdate#getChangedFieldValue
      */
     forEachChangedField: function(iterator) {
       for (var i in this.updatingRow) {
@@ -441,7 +441,7 @@ define(["LoggerManager","Inheritance","Setter","IllegalArgumentException"],
      * Callback for {@link VisualUpdate#forEachChangedField}
      * @callback ChangedFieldCallback
      * @param {String} field name of the involved changed field.
-     * @param {String} valuet he new value for the field. See {@link #getChangedFieldValue} for details.
+     * @param {String} value the new value for the field. See {@link #getChangedFieldValue} for details.
      * Note that changes to the values made through {@link #setCellValue} calls will not be reflected 
      * by the iterator, as they don't affect the model.
      */
